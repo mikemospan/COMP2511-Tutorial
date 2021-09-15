@@ -8,7 +8,7 @@ In groups, analyse the classes to answer the following questions:
 
 1. What is the difference between `super` and `this`?
 2. What about `super(...)` and `this(...)`?
-4. What are static fields and methods?
+3. What are static fields and methods?
 
 ## B. JavaDoc 
 
@@ -18,7 +18,7 @@ Create an `Employee` class which has private fields for an employee's name and s
 
 ## C. Basic Inheritance & Polymorphism 
 
-This exercise continues on from the `Employee` class in Exercise D.
+This exercise continues on from the `Employee` class in Exercise B.
 
 * How many constructors should the class have? What arguments should they take?
 
