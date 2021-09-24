@@ -124,6 +124,8 @@ Explore the IDE tools built into VSCode by:
 
 There is a further bug in the function not caught by the given unit test. Find the other bug, and write a corresponding unit test inside `WondrousTest`.
 
+[You can learn more about JUnit here](https://www.vogella.com/tutorials/JUnit/article.html).
+
 ### Part 3 - Exceptional Conditions
 
 Modify the method such that if a `start` is less than 1, an `IllegalArgumentException` is thrown. Write a corresponding test for this inside `WondrousTest`. 
