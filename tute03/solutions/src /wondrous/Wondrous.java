@@ -14,7 +14,7 @@ public class Wondrous {
         }
         
         if (start == 1) {
-            return new ArrayList<Integer>(start);
+            return new ArrayList<Integer>();
         }
         int current = start;
         List<Integer> sequence = new ArrayList<Integer>();

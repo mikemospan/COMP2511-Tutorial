@@ -23,7 +23,7 @@ public class WondrousTest {
     @Test
     public void testOne() {
         Wondrous w = new Wondrous();
-        List<Integer> expected = new ArrayList<Integer>(1);
+        List<Integer> expected = new ArrayList<Integer>();
         assertEquals(expected, w.wondrous(1));
     }
 
