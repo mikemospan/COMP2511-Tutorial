@@ -109,7 +109,7 @@ Since UNSW is a world-leader in technology innovation, they want you to be able 
 
 During the lab, you will build on this UML diagram to incorporate further requirements.
 
-> See [solution](21T2 cs2511 Tute02 Cars Solution-2.pdf).
+> See [solution](21T3 cs2511 Tute03 Cars Solution.pdf).
 
 ## C. Wondrous
 
