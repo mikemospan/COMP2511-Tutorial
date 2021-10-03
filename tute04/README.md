@@ -26,9 +26,8 @@ Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution
 
 ```java
 List<String> strings = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
-int total = 0;
 for (String string : strings) {
-    total += Integer.parseInt(string);
+   System.out.println(string);
 }
 ```
 
