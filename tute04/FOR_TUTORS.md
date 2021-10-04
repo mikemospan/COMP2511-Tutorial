@@ -1,97 +1,6 @@
-# Tutorial 03
+# Tutorial 04
 
-## A. Code Review & Questions (15 minutes)
-
-In your project groups, answer the following questions. 
-
-1. What is method overriding?
-
-> A parent/child class, and a super/sub class - a method in the child class redefines a method in the parent class - same parameters (type and number).
-
-2. Can you override a static method?
-
-> No - the method is attached to the class, not the instance.
-
-3. What is output by executing `A.f()` in the following?
-
-    ```java
-    public class A {
-        public static void f() {
-            C c = new C();
-            c.speak();
-            B b = c;
-            b.speak();
-            b = new B();
-            b.speak();
-            c.speak();
-        }
-    }
-
-
-    public class B {
-        public void speak() {
-            System.out.println("moo");
-        }
-    }
-
-
-    public class C extends B {
-        public void speak() {
-            System.out.println("quack");
-        }
-    }
-    ```
-
-    > The program will print out:
-    > ```
-    > quack
-    > quack
-    > moo
-    > quack
-    > ```
-
-4. What is output by executing `A.f()` in the following?
-
-    ```java
-    public class A {
-        public static void f() {
-            B b1 = new B();
-            B b2 = new B();
-            b1.incX();
-            b2.incY();
-            System.out.println(b1.getX() + " " + b1.getY());
-            System.out.println(b2.getX() + " " + b2.getY());
-        }
-    }
-
-    public class B {
-        private int x;
-        private static int y;
-
-        public int getX() {
-            return x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public void incX() {
-            x++;
-        }
-
-        public void incY() {
-            y++;
-        }
-    }
-    ```
-
-    > ```
-    > 1 1
-    > 0 1
-    > ```
-
-## B. Design Principles (25 minutes)
+## A. Design Principles (25 minutes)
 
 ### Part 1: Law of Demeter
 
@@ -130,48 +39,57 @@ Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution
 
 > This class violates the Liskov Substitution Principle. Specifically a `Seminar` is defined as having a list of attendees, but `OnlineSeminar` does not require this. A client interacting with a `Seminar` would expect the seminar to be booked like any other. This is an example of classes having an IS-A relationship informally, but not a valid inheritance relationship when taking into account what the classes actually do and represent.
 
-## C. Testing with JUnit (20 minutes)
 
-1. What is the difference between unit and integration testing?
+## B. Streams and Lambdas
 
-> Unit testing: A single component
-> Integration testing: Multiple components interacting
+1. Inside `src/stream/App.java`, rewrite the following code using the `.forEach()` method and a lambda:
 
-2. What does test-driven development look like in Java? 
+```java
+List<String> strings = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
+for (String string : strings) {
+   System.out.println(string);
+}
+```
 
-> 1. Write the class/object declaration (the class and method headers, with parameters and types)
-> 2. Write the test(s)
-> 3. Run the test(s) (they'll fail of course)
-> 4. Implement the methods
-> 5. Pass the tests
+2. In the above example, discuss two different ways to write lambda expressions.
 
-3. Inside the `src/unsw` folder is `archaic_fs` and `test` that mocks a very simple file system and tests it respectively, you can see 3 already written in there.
+3. What is a stream? Rewrite the following code to use a stream and the `map` function.
 
-    - This simulates a 'linux' like Inode system (arguably pretty badly but we'll extend on it next week to be better).  You don't have to understand how it works under the hood, since it mocks the typical linux commands.
-    - Commands available;
-        - `cd(path)`
-            - Throws NoSuchFileExpception is a part of the path can't be found
-        - `mkdir(path, createParentDirectories, ignoreIfExists)`
-            - Throws FileNotFoundException if a part of the path can't be found and createParentDirectories is false
-            - Throws FileAlreadyExistsException if the folder already exists and ignoreIfExists is false
-        - `writeToFile(path, content, opts)`
-            - Options are a EnumSet of FileWriteOptions i.e. `EnumSet.of(FileWriteOptions.APPEND, FileWriteOptions.CREATE)` the full set is: CREATE, APPEND, TRUNCATE, CREATE_IF_NOT_EXISTS
-            - Throws FileNotFoundException if the file can't be found and no creation options are specified
-            - Throws FileAlreadyExistsException if the file already exists and CREATE is true
-        - `readFromFile(path)` returns the content for a given file.
-            - Throws FileNotFoundException if the file can't be found
+```java
+List<String> strings2 = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
+List<Integer> ints = new ArrayList<Integer>();
+for (String string : strings2) {
+    ints.add(Integer.parseInt(string));
+}
+```
 
-**Write at least 2 more unit tests and 1 integration test.**
+4. Modify your answer to (3) to use a scope operator instead of a normal lambda.
 
-More information on JUnit can be found [here](https://www.vogella.com/tutorials/JUnit/article.html).
+> See (solutions/src/streams/App.java)[solutions/src/streams/App.java]
 
-4. Coverage testing!  After doing above you can check the coverage of your tests by running the command `$ gradle test -b test.gradle`
+## C. Design by Contract
 
-The output is under `build/reports/jacoco/test/html/index.html` you can open this in a browser.
+1. What is Design by Contract? 
 
-## Installing Gradle
+2. Discuss briefly as a class how you have used Design by Contract already in previous courses.
 
-- Download the zip file from (download should start automatically): https://gradle.org/next-steps/?version=5.4.1&format=bin
-- You should follow the installation instructions provided: https://gradle.org/install/#manually
-  - For Linux users, note that you may have to edit the ~/.bashrc file to permanently change the PATH variable by appending the line: `export PATH=$PATH:/opt/gradle/gradle-5.4.1/bin`
-- Note that Gradle 5.4.1 is the same version as on CSE machines. It has been chosen so that common syntax can be used for the test.gradle file to Jacoco coverage testing.
+> 1531 API & Frontend/backend, 1511/2521 using ADTs
+
+3. Discuss how Design By Contract was applied in the Blackout assignment.
+
+> Key things to discuss here:
+>   * We specified the interface functions in `Blackout`, and so long as they matched that interface, they could implement however they chose
+>   * We told them that they didn't have to account for invalid Satellite/Device IDs, and that no 2 devices would ever occupy the same position - examples of preconditions which they didn't have to account for (if we did, the behaviour of the ADT is undefined)
+
+4. In the `calculator` code, specify a contract for each of the `compute` functions. Hint: for the trig functions, look at the interface of the `Math` functions in the Java documentation. Key edge cases to consider:
+    * Dividing by zero
+    * `tan(Math.PI / 2)`
+
+5. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
+
+6. We will now make our code more defensive by throwing an exception on the two edge cases listed above. Define your own custom exception called `CalculatorException`, and change the code so that these edge cases cause this exception to be thrown. Modify your contract accordingly. If you have time, add tests for these conditions as well.
+
+> When you update your postconditions, include the possible exception cases
+> Note that exception cases are still cases for which the preconditions aren't met - this is the subject of a bit of debate, because technically exceptional behaviour is 'accounted for' and defined which means the preconditions (user of the ADT) don't have to worry about it, but also looking at it from a formal 'proving-things about programs' perspective, an input which causes an exception to be raised doesn't map to an output, which means it's not formally 'defined' behaviour. So what this essentially means is that an input that doesn't meet the 'correct' preconditions will cause an exception to be raised (in a defensive programming style) but the behaviour of the ADT is still defined. 
+
+> From a library-writing perspective this sort of 'contract except I tell you where you went wrong you if you mess up' style of design is useful for 2 reasons, one is that it prevents weird stuff from happening that breaks everything, and the second is that it helps users of the ADT debug their code. Just like how when you enter jibberish on a date field in a web form it says 'error: invalid date' etc etc instead of a 500 Internal Server Error, or when you divide by 0 in Python or Java you get a ZeroDivisionError, rather than some message from the OS.
