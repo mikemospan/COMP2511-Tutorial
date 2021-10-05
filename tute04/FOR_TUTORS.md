@@ -67,6 +67,8 @@ for (String string : strings2) {
 
 > See (solutions/src/streams/App.java)[solutions/src/streams/App.java]
 
+> [Lecture code examples](https://gitlab.cse.unsw.edu.au/COMP2511/21T3/content/-/tree/master/lectures/MyLambdaPipeline) & [slides](https://www.cse.unsw.edu.au/~cs2511/21T3/lectures/week04/pdfs/JavaLambdaAggregateOps.pdf).
+
 ## C. Design by Contract
 
 1. What is Design by Contract? 
