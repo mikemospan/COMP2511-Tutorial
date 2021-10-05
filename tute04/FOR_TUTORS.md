@@ -53,6 +53,8 @@ for (String string : strings) {
 
 2. In the above example, discuss two different ways to write lambda expressions.
 
+> One-liner or with curly braces
+
 3. What is a stream? Rewrite the following code to use a stream and the `map` function.
 
 ```java
