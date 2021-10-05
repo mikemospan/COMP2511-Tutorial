@@ -11,6 +11,7 @@ public class App {
         strings.forEach(s -> System.out.println(s));
 
         List<String> strings2 = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
+        // Q3 List<Integer> ints = strings2.stream().map(i -> Integer.parseInt(i)).collect(Collectors.toList()); 
         List<Integer> ints = strings2.stream().map(Integer::parseInt).collect(Collectors.toList()); 
         System.out.println(ints);
     }
