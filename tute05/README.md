@@ -31,8 +31,6 @@ To help you begin with implementing that let's discuss the basic mechanics behin
 
 ```mermaid
 sequenceDiagram
-    actor User as Browser (User)
-    participant App as Client App
     User->>App: Visit Website
     alt has credentials
     App->>User: Redirect to home page (done)
