@@ -42,16 +42,15 @@ sequenceDiagram
     App->>+Provider: Validate access token
     Provider->>-App: Access token status
     alt access token valid
-    alt user exists under provider
-    else user doesn't exist at all
+    alt user doesn't exist at all
     App->>User: Registration form for user details
     User->>App: Registration details
     App->>App: Create user and link provider
     else user exists but not under provider
     App->>App: Link user to provider
+    end
     alt user is locked
     App->>App: Unlock user
-    end
     end
     App->>App: Convert access token
     App->>-User: Redirect to home page (done)
