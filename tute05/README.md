@@ -2,7 +2,7 @@
 
  ## A. Strategy Pattern
 
- Inside `src/restaurant` is a solution for a restaurant payment with the following requirements:
+ Inside `src/restaurant` is a solution for a restaurant payment system with the following requirements:
 
 * The restaurant has a menu, stored in a JSON file. Each meal on the menu has a name and price
 * The system displays all of the standard meal names and their prices to the user so they can make their order
@@ -24,7 +24,6 @@ Refactor the code to use the Strategy Pattern to handle the four settings.
 Here is the strategy interface to get you started:
 
 ```java
-
 public interface ChargingStrategy {
     
     /**
