@@ -2,10 +2,10 @@ package youtube;
 
 public class Video {
     private int length; // Length of the video in seconds
-    private User producer;
+    private Producer producer;
     private String name;
 
-    public Video(String name, int length, User producer) {
+    public Video(String name, int length, Producer producer) {
         this.name = name;
         this.length = length;
         this.producer = producer;
@@ -19,11 +19,11 @@ public class Video {
         this.length = length;
     }
 
-    public User getProducer() {
+    public Producer getProducer() {
         return producer;
     }
 
-    public void setProducer(User producer) {
+    public void setProducer(Producer producer) {
         this.producer = producer;
     }
 
@@ -34,5 +34,6 @@ public class Video {
     public void setName(String name) {
         this.name = name;
     }
+
     
 }

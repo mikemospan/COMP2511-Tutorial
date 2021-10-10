@@ -9,14 +9,14 @@ import org.json.JSONObject;
 import restaurant.strategy.ChargingStrategy;
 import restaurant.strategy.StandardStrategy;
 
-public class RestaurantSoln {
+public class Restaurant {
 
     private ChargingStrategy chargingStrategy = new StandardStrategy();
     private String name;
     private List<Meal> menu = new ArrayList<Meal>();
     private List<String> members = new ArrayList<String>();
     
-    public RestaurantSoln(String name) {
+    public Restaurant(String name) {
         this.name = name;
         JSONArray menuJSON = JSONHelper.readInData("src/restaurant/prices.json");
 

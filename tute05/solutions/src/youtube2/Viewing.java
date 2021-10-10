@@ -1,7 +1,7 @@
-package youtube;
+package youtube2;
 
-import youtube.state.ReadyState;
-import youtube.state.ViewingState;
+import youtube2.state.ReadyState;
+import youtube2.state.ViewingState;
 
 public class Viewing {
     

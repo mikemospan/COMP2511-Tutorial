@@ -1,6 +1,6 @@
-package youtube.state;
+package youtube2.state;
 
-import youtube.Viewing;
+import youtube2.Viewing;
 
 public class ReadyState extends ViewingState {
 
