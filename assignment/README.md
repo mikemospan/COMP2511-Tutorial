@@ -51,6 +51,12 @@ If a student has received an autotest mark of 0 (or a very low mark), notify Nic
 
 The elephant satellite is a bit of a different one, in this one they have to develop their own algorithm and there are a few suggestions in the assignment specification.  Don't stress about this, just read through the rationale (if they don't mention it in rationale they get 0/1.5 for the subjective mark) and ensure they have told you *why*, if it sounds interesting/more complicated then a brute force method give 0.5-1.5 based on how interesting/complicated it is.
 
+## Rationale
+
+The rationale will be in the gitlab repository/tears along with the UML.  Feel free to give them marks for things they clearly explain how they would have done them given time.  For example, if they state very clearly that they wanted to move code from the simulate function in the blackout controller to the devices/satellites and explains how (maybe with a reference to a design smell) then you can give them a couple of marks for that (reduce penaltly basically).
+
+We want to be lenient here, but they need to say *why*, just saying how is not good enough.
+
 ### High Scoring Example
 
 https://gitlab.cse.unsw.edu.au/COMP2511/21T3/students/z5303634/assignment
