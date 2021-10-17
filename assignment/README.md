@@ -47,6 +47,10 @@ If a student has received an autotest mark of 0 (or a very low mark), notify Nic
 
 <img src="marking.png" width=600>
 
+## Elephant Satellite Marking
+
+The elephant satellite is a bit of a different one, in this one they have to develop their own algorithm and there are a few suggestions in the assignment specification.  Don't stress about this, just read through the rationale (if they don't mention it in rationale they get 0/1.5 for the subjective mark) and ensure they have told you *why*, if it sounds interesting/more complicated then a brute force method give 0.5-1.5 based on how interesting/complicated it is.
+
 ### High Scoring Example
 
 https://gitlab.cse.unsw.edu.au/COMP2511/21T3/students/z5303634/assignment
@@ -75,11 +79,11 @@ Code Quality:
 Tests:
 - 2, good tests.
 
-Has an interesting elephant satellite strategy so 1.5/1.5
+Has an interesting elephant satellite strategy so 1.5/1.5, funnily though it's worse then brute force!
 
 | Automarking | Elephant Satellite | Handmarking | Total |
 | ----------- |  -----------| ----------- | ----- |
-| 18.5 / 18.5   | 1.5/1.5 | 20 / 20     | 40 / 40|
+| 17.5 / 18.5   | 1.5/1.5 | 20 / 20     | 39 / 40|
 
 ### Low Performing Example
 
