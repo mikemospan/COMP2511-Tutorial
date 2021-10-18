@@ -76,7 +76,7 @@ Design:
     - Note on over-abstraction
 - Aggregation: 1
 - Delegation: 6
-- Modelling of entities: 1
+- Modelling of entities: 2
 - UML Formatting: 3
 
 Code Quality:
@@ -113,7 +113,7 @@ Design:
 - Aggregation: 1
 - Delegation: 2
     - The use of a helper class is a *bit* better, but not really.
-- Modelling of entities: 1
+- Modelling of entities: 2
 - UML Formatting: 1.5
     - Incorrect arrows for inheritance
 
@@ -125,9 +125,7 @@ Tests:
 
 | Automarking | Elephant Satellite | Handmarking | Total |
 | ----------- |  -----------| ----------- | ----- |
-| 9.5 / 18.5   | 0/1.5 | 9.5 / 20     | 20 / 40|
-
-> Adjusted final mark to pass, you can do this if it's close and they deserve it.
+| 9.5 / 18.5   | 0/1.5 | 10.5 / 20     | 20 / 40|
 
 ### Medium Performing Example (design)
 
