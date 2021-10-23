@@ -2,7 +2,7 @@
 
 > Don't share this with students.
 
-You will be paid for 9 minutes per student that you as a tutor have. You will need to mark 3 sections for each assignment:
+You will be paid for 10 minutes per student that you as a tutor have. You will need to mark 3 sections for each assignment:
 
 * Elephant Satellite Subjective (1.5 marks)
 * Design (16 marks)
