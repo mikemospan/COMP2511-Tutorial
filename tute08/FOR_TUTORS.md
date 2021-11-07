@@ -1,5 +1,7 @@
 # Tutorial 08
 
+> This is a big tute - don't feel obliged to get through everything. Probably pick one out of Singleton and Refactoring to focus on.
+
 ## A. Generic Programming (30 minutes)
 
 ### Part 1 - Implementation
@@ -57,7 +59,11 @@ Having pushed the words "hello", "how", "are", "you", "today" on, the following 
 
 8. We need to go through the stack and print out each element with a space, except for the last one (which doesn't have a space). There are a couple of ways to do this, but create an `Iterator` and use the `.next()` method to traverse the stack.
 
-## B. Refactoring to Patterns
+## B. Money Heist
+
+> See [solutions/src/heist](solutions/src/heist).
+
+## C. Refactoring to Patterns
 
 ### File System Viewer
 
