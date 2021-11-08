@@ -29,9 +29,11 @@ Use the Builder Pattern to abstract the creation of objects, allowing for a game
 ```java
 new GameBuilder(width, height)
     .createGame()
-    .addQueen("queen")
-    .addKing("king")
-    .addDragon("dragon");
+    .addQueen(x, y)
+    .addKing(dx, dy)
+    .addDragon(dx, dy);
 ```
+
+The first entity is added at `(x, y)`. From the second entity onwards, these parameters become a `(dx, dy)` a relative position to that of the previous entity. 
 
 How is this different from the Factory Pattern we used in Week 7? How does this design give us extra extensibility?
