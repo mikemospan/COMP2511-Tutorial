@@ -31,9 +31,9 @@ new GameBuilder(width, height)
     .createGame()
     .addQueen(x, y)
     .addKing(dx, dy)
-    .addDragon(dx, dy);
+    .addDragon();
 ```
 
-The first entity is added at `(x, y)`. From the second entity onwards, these parameters become a `(dx, dy)` a relative position to that of the previous entity. 
+The first entity is added at `(x, y)`. From the second entity onwards, these parameters become a `(dx, dy)` a relative position to that of the previous entity. Dragons have a random `x` and `y` chosen on construction.
 
 How is this different from the Factory Pattern we used in Week 7? How does this design give us extra extensibility?
