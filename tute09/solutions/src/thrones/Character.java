@@ -9,6 +9,10 @@ public interface Character {
 
     public int getY();
 
+    public void setX(int x);
+
+    public void setY(int y);
+
     /**
      * Cause this character the given amount of damage.
      *
@@ -33,6 +37,23 @@ public interface Character {
      */
     public boolean canMove(int dx, int dy);
 
-    public MoveResult makeMove(int x, int y, List<Character> characters);
+    default MoveResult makeMove(int x, int y, List<Character> characters) {
+        // This function uses two abstract methods (AKA 'hook methods') which the concrete classes must implement
+        if (!canMove(this.getX() - x, this.getY() - y)) {
+            return MoveResult.INVALID;
+        }
+
+        for (Character character : characters) {
+            if (character != this && character.getX() == x && character.getY() == y) {
+                attack(character);
+                return MoveResult.ATTACK;
+            }
+        }
+        
+        this.setX(x);
+        this.setY(y);
+
+        return MoveResult.SUCCESS;
+    }
 
 }

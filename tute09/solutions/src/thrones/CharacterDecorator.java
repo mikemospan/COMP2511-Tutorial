@@ -48,6 +48,16 @@ public class CharacterDecorator implements Character{
     public String toString(){
         return character.toString();
     }
+
+    @Override
+    public void setX(int x) {
+        character.setX(x);
+    }
+
+    @Override
+    public void setY(int y) {
+        character.setY(y);
+    }
     
     
 }
