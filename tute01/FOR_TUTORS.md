@@ -1,10 +1,10 @@
 # Tutorial 1
 
-## A. Introduction (10 minutes)
+## A. Introduction
 
-> However you want to do this is fine :) 
+> However you want to do this is fine :)
 
-## B. Solving Design Problems (15 minutes)
+## B. Solving Design Problems
 
 > Any groups is fine for this activity
 
@@ -13,7 +13,7 @@
 
 > Design Problem: UNSW has decided that they want to create their own light rail, which takes students from upper campus to lower campus. Design a solution for this - how will it work? What will need to be changed about the campus layout for it to work?
 
-## C. Hello Java and Git Revision (10 minutes)
+## C. Hello Java and Git Revision
 
 > NOTE: You are going to need to *fork* this repo in order to add/commit/push the code, or just create another one and copy the starter code.
 
@@ -28,39 +28,20 @@ Your tutor is going to import the `tute01` code into VSCode and will complete th
 
 After completing the program, your tutor will `git add`, `commit`, and `push` the changes.
 
-> See [HelloWorld.java]
+> See [HelloWorld.java](solutions/src/example/HelloWorld.java)
 
-## D. Java Programming (15 minutes)
+## D. Java Programming
 
 1. In the same project, write a program that uses the `Scanner` class which reads in a line of numbers separated by spaces, and sums them.
 
-> See [ReadingInput.java]
+> See [Sum.java](solutions/src/example/Sum.java)
 
 2. Write a program that stores a message and has methods for getting the message, updating the message and printing it out in all caps. Write a `main()` method for testing this class.
 
-> See [Shouting.java]
+> See [Shouter.java](solutions/src/example/Shouter.java)
 
-## E. C vs Python vs Java (10 minutes)
+## E. Abstraction
 
-As a class, discuss the following questions:
+What is abstraction? What examples of abstraction have we seen in previous courses? How does abstraction allow us to write better software? Discuss how OOP takes abstraction to another level from what we have seen previously.
 
-1. What are some similarities and differences between C, Python and Java - stylistically, structurally but also what they are used for.
-
-2. What is a class? What is an object? Based on your experience with Python, how are classes normally used?
-
-> Classes: Blueprint, specifies values/fields/methods
-Object: Instantiation of class, concrete values in fields
-
-3. How do C, Python and Java compare to other languages you may have encountered at CSE or elsewhere? Is the best way of doing something in one language necessarily the best way of doing it in another?
-
-> Things to talk about: Syntax
-Classes
-Access control
-Type system
-Memory management
-Execution
-Applications
-
-4. What is an IDE?
-
-> Integrated Development Environment
+> Leave this one up to you how you want to spin, feel free to leave it out and do more icebreakers. [Nick's tute recording from 21T3](https://youtu.be/H69hOjEfZQU) goes through this exercise (start of video).

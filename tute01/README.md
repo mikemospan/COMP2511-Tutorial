@@ -26,14 +26,6 @@ After completing the program, your tutor will `git add`, `commit`, and `push` th
 
 2. Inside a new file `Shouter.java`, Write a program that stores a message and has methods for getting the message, updating the message and printing it out in all caps. Write a `main()` method for testing this class.
 
-## E. C vs Python vs Java
+## E. Abstraction
 
-As a class, discuss the following questions:
-
-1. What are some similarities and differences between C, Python and Java - stylistically, structurally but also what they are used for.
-
-2. What is a class? What is an object? Based on your experience with Python, how are classes normally used?
-
-3. How do C, Python and Java compare to other languages you may have encountered at CSE or elsewhere? Is the best way of doing something in one language necessarily the best way of doing it in another?
-
-4. What is an IDE?
+What is abstraction? What examples of abstraction have we seen in previous courses? How does abstraction allow us to write better software? Discuss how OOP takes abstraction to another level from what we have seen previously.
