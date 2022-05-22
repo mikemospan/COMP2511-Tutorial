@@ -1,8 +1,8 @@
 # Tutorial 03
 
-## A. Code Review & Questions 
+## A. Code Review & Questions
 
-In your project groups, answer the following questions. 
+In your project groups, answer the following questions.
 
 1. Can you override a static method?
 
@@ -72,11 +72,11 @@ In your project groups, answer the following questions.
     }
     ```
 
-## B. UML Diagrams 
+## B. Domain Modelling
 
-In this problem, we are going to create an Object-Oriented domain model for a system with the following requirements. 
+In this problem, we are going to create an Object-Oriented domain model for a system with the following requirements.
 
-With success in student projects like Sunswift and Redback, UNSW have decided that they would like to build a system that can show all of the student-built and other cars that they have in order to showcase to prospective students interested in STEM and attract students from other universities. They have asked you, as a designer to produce a model for what this system will look like. 
+With success in student projects like Sunswift and Redback, UNSW have decided that they would like to build a system that can show all of the student-built and other cars that they have in order to showcase to prospective students interested in STEM and attract students from other universities. They have asked you, as a designer to produce a model for what this system will look like.
 
 ### Requirements
 
@@ -130,6 +130,6 @@ There is a further bug in the function not caught by the given unit test. Find t
 
 ### Part 3 - Exceptional Conditions
 
-Modify the method such that if a `start` is less than 1, an `IllegalArgumentException` is thrown. Write a corresponding test for this inside `WondrousTest`. 
+Modify the method such that if a `start` is less than 1, an `IllegalArgumentException` is thrown. Write a corresponding test for this inside `WondrousTest`.
 
 In many cases when we throw an exception we need to update the method signature and existing tests but here we don't - why is this?

@@ -10,7 +10,7 @@ In groups, determine a possible pattern that could be used to solve each of the 
 * Parsing and evaluating arithmetic expressions.
 * Adjusting the brightness of a screen based on a light sensor.
 
-Then pick one and start to think about potential entities and draw up a rough UML diagram
+Then pick one and start to think about potential entities and draw up a rough UML diagram.
 
 ## B. Composite Pattern
 

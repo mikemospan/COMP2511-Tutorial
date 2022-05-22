@@ -4,7 +4,7 @@
 
 ### Part 1: Law of Demeter
 
-In the `unsw.training` package there is some skeleton code for a training system. 
+In the `unsw.training` package there is some skeleton code for a training system.
 
 * Every employee must attend a whole day training seminar run by a qualified trainer
 * Each trainer is running multiple seminars with no more than 10 attendees per seminar
@@ -46,6 +46,8 @@ for (String string : strings2) {
 4. Modify your answer to (3) to use a scope operator instead of a normal lambda.
 
 ## C. Design by Contract
+
+[Replace with exercise on code review - 21T3 Exam Q9, TBA]
 
 1. What is Design by Contract?
 

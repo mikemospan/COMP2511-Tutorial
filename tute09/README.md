@@ -1,6 +1,6 @@
 # Tutorial 09
 
-## A. The Game 
+## A. The Game
 
 In a simple game, different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance (e.g. a dice roll).
 
@@ -10,7 +10,7 @@ In a simple game, different types of characters move around on a grid fighting e
 
 Use a suitable Design Pattern to model a solution to this problem. The code has been started for you inside the `Character` class.
 
-## B. Evolution of Requirements 
+## B. Evolution of Requirements
 
 This exercise continues on from Exercise A.
 
@@ -23,6 +23,8 @@ Suppose a requirements change was introduce that necessitated support for differ
 Use a suitable Design Pattern to realise these new requirements. Assume that, as this game takes place in a virtual world, there are no restrictions on the number of pieces of armour a character can wear and that the "order" in which armour is worn affects how it works. You may need to make a small change to the existing code.
 
 ## C. Building a Game
+
+[Move Design by Contract to this Exercise, TBA]
 
 Use the Builder Pattern to abstract the creation of objects, allowing for a game to be created in the following manner:
 

@@ -4,11 +4,11 @@
 
 ### Part 1 - Implementation
 
-Inside `src/stack`, there are a series of stubs for a `Stack` class which takes in a generic type. There are a series of tests inside `StackTest.java` which currently fail. 
+Inside `src/stack`, there are a series of stubs for a `Stack` class which takes in a generic type. There are a series of tests inside `StackTest.java` which currently fail.
 
 Implement the methods so that the tests pass, using an `ArrayList` to store the internal data structure. Answer the following questions:
 
-1. What is `E`? 
+1. What is `E`?
 2. What is the `Iterable` interface? Why does it have an `E` as well? What methods does it force us to implement?
 3. When completing `toArrayList`, why do we need to make a copy rather than just returning our internal ArrayList?
 4. What does the `.iterator()` method allow us to do? Discuss the test inside `StackTest.java`.
@@ -37,7 +37,7 @@ Having pushed the words "hello", "how", "are", "you", "today" on, the following 
 7. What is the difference between `?` and `E`?
 8. We need to go through the stack and print out each element with a space, except for the last one (which doesn't have a space). There are a couple of ways to do this, but create an `Iterator` and use the `.next()` method to traverse the stack.
 
-## B. Money Heist
+## B. Singleton Pattern & Concurrency
 
 Consider the Bank Account class from Lab 04. What if multiple people try to access the bank account at the same time? Inside `src/unsw/heist` are three classes:
 
@@ -70,7 +70,7 @@ Rio is leaving the bank, the balance is $1
 Tokyo is leaving the bank, the balance is $1
 ```
 
-In some cases though, some strange behaviour is produced by this **race condition**: 
+In some cases though, some strange behaviour is produced by this **race condition**:
 
 ```
 Denver is accessing the bank.

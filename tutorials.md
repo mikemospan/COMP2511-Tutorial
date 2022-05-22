@@ -1,14 +1,12 @@
 # COMP2511 Tutor Guidelines for Tutorials
 
-## Tutorial Management
+## Online Tutorial Management
 
 - Students will need to join the teams call via their UNSW teams login.
 
 - Before your tutorial starts, create at least 6 breakout rooms (have some empty ones in case people want to chat one on one)
 
 - Instructions on using breakout rooms can be found [here](https://support.microsoft.com/en-us/office/use-breakout-rooms-in-teams-meetings-7de1f48a-da07-466c-a5ab-4ebace28e461#bkmk_createrooms)
-
-- In coming weeks once we've adjusted to teaching over teams we'll add to these notes
 
 ## Participation Marks Collection
 
