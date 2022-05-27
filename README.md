@@ -7,6 +7,8 @@
 * Brain training, solving puzzles and learning how to figure it out
 * Reflective & experiential learning
 * Professional maturity
+* Resilience & character development
+* We are here to support them :)
 
 ### Your Job
 
@@ -31,7 +33,8 @@
     * Marking + time management
 * Debrief channel
 * Help Sessions
-* Forum + assignment + project teams
+* Forum
+* Assignment + project staff teams
 
 ### Admin
 
@@ -40,6 +43,7 @@
 
 ### Leading & Teaching
 
+* Feedback
 * Dealing with students
 * Escalating queries
 * Mental Health
