@@ -47,8 +47,6 @@ for (String string : strings2) {
 
 ## C. Design by Contract
 
-[Replace with exercise on code review - 21T3 Exam Q9, TBA]
-
 1. What is Design by Contract?
 
 2. Discuss briefly as a class how you have used Design by Contract already in previous courses.
