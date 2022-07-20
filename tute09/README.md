@@ -22,9 +22,13 @@ Suppose a requirements change was introduce that necessitated support for differ
 
 Use a suitable Design Pattern to realise these new requirements. Assume that, as this game takes place in a virtual world, there are no restrictions on the number of pieces of armour a character can wear and that the "order" in which armour is worn affects how it works. You may need to make a small change to the existing code.
 
-## C. Building a Game
+## C. Revision Exercises
 
-[Move Design by Contract to this Exercise, TBA]
+Complete some of the Theory Revision questions in Lab 10.
+
+## D. Building a Game (Bonus)
+
+Builder Pattern's not covered in the course anymore, this is just bonus material.
 
 Use the Builder Pattern to abstract the creation of objects, allowing for a game to be created in the following manner:
 
