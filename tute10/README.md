@@ -18,6 +18,8 @@ In particular though, anyone which is visiting a `Computer` must be **validated*
 
 Extend/modify the starter code to use the Visitor Pattern to allow different computer components to be visited.
 
-## C. General Revision
+## C. Kahoot + General Revision
 
-You can spend time with your tutor to review any topics in the course that you feel you want to build more confidence in.
+Your tutor will run you through a Kahoot! They will share a code with you.
+
+After that you can spend time with your tutor to review any topics in the course that you feel you want to build more confidence in.
