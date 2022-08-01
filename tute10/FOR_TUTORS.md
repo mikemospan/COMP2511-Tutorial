@@ -1,6 +1,10 @@
 # Tutorial 10
 
-## A. Visitor Pattern (20 minutes)
+## A. MyExperience
+
+It's time to fill out MyExperience!!
+
+## B. Visitor Pattern
 
 In this scenario we have `Computer`s, `Keyboard`s and `Mouse`s which all are of type `ComputerComponent`. We want to be able to 'visit' different types of Computer components by logging the following messages:
 
@@ -14,16 +18,10 @@ In particular though, anyone which is visiting a `Computer` must be **validated*
 
 Extend/modify the starter code to use the Visitor Pattern to allow different computer components to be visited. 
 
-## B. Kahoot (30 minutes)
+## C. Kahoot + General Revision
 
 Your tutor will run you through a Kahoot! They will share a code with you.
 
 > https://create.kahoot.it/share/comp2511-week-10-kahoot/fba8b040-a51e-4731-ab2e-07199d92c3ac
-
-## C. MyExperience
-
-It's time to fill out MyExperience!!
-
-## D. General Revision (10 minutes)
 
 You can spend time with your tutor to review any topics in the course that you feel you want to build more confidence in.
