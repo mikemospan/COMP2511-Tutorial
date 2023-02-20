@@ -42,6 +42,26 @@ Override the `toString()` method inherited from `Object` in both classes.
 
 * Does the method in `Manager` call the one in `Employee`?
 
-## D. Access Modifiers & Packages
+## D. Equals
+This exercise continues on from the work in Exercise C.
 
-In the code in the `src/access` package, answer the questions marked `TODO`.
+What does the ‘==’ operator do when comparing objects?
+
+Where have you seen this sort of behaviour before in other languages? How is the underlying data checked for equality in that scenario?
+
+How can we compare two objects for equality?
+
+What does it mean for objects to be considered equal? 
+
+What is the relationship between a super type and a sub type in terms of equality? Can a concrete instance of an Employee be equal to an instance of a Manager
+
+Override the equals() method inherited from Object in both classes.
+
+What key things should the equals() method do?
+
+How should the type of the input object be checked? How should it be compared to the type of the calling object?
+
+How can the method in the Manager utilise code in the Employee to avoid repetition?
+
+## E. Access Modifiers & Packages
+In the code in the src/access package, answer the questions marked TODO.
