@@ -69,6 +69,61 @@ Override the `toString()` method inherited from `Object` in both classes.
 
 > In order to satisfy the above requirement and not introduce unnecessary repetition, the superclass method must be called.
 
+## D. Equals
+This exercise continues on from the work in Exercise C.
+
+What does the ‘==’ operator do when comparing objects?
+
+Compares the objects references. I.e., the result will be true if and only if the two objects being compared are the same instance. Only use this when you want to compare by reference.
+
+Where have you seen this sort of behaviour before in other languages? How is the underlying data checked for equality in that scenario?
+
+This is similar to strings in C. We don’t use ‘==’ with strings in C as this compares the pointers to the start of each string. To compare the contents of the string for equality, we’d use strcmp().
+
+How can we compare two objects for equality?
+
+Using the equals() method, a method that comes from the Object class and is therefore inherited by every other class with the ability to be overridden.
+
+What does it mean for objects to be considered equal?
+
+There’s a formal definition for what the equals() method needs to do as defined by the documentation. As long as the implementation adheres to those properties, then you could define equality for your set of objects in any way that makes sense for your purpose. However, the most common way is to compare all of the fields of the object to see if they are equal, i.e., comparing the contents of the objects in a similar way to how strings are compared in C. That is Employees will be considered equal if their fields are equal.
+
+What is the relationship between a super type and a sub type in terms of equality? Can a concrete instance of an Employee be equal to an instance of a Manager
+
+Although a subtype can also be treated as the supertype, they are inherently unequal. A subtype is a more specific version and hence can’t be treated as an equal to a concrete instance of the supertype. In this example, a Manager is a more specific version of an Employee with additional fields. However, even if the Manager did not have additional fields, there should be something that the Manager does to differentiate it from the Employee. That is a Manager and an Employee with the same data in their fields, should still be considered unequal.
+
+Override the equals() method inherited from Object in both classes.
+
+What key things should the equals() method do?
+
+Typical Structure of the equals method will include:
+
+Check that the passed in object is not null. if (object == null) return false
+
+Check if the passed in object is the same instance as the calling object. 
+
+if (this == object) return true
+
+Check the concrete type of the calling object matches the concrete type of the passed in object.
+
+if (!this.getClass().equals(object.getClass())) return false
+
+Note this is the robust way to allow subclasses to invoke super.equals().
+
+Once confirmed that the passed in object is of the same type (so it can be cast safely), cast the passed in object to the same type as the current class so the fields of that class can be compared between the calling object and the passed in object.
+
+How should the type of the input object be checked? How should it be compared to the type of the calling object?
+
+DO NOT USE instanceof to check the types of objects in the equals() method. 
+
+Get the concrete type of any object by calling its getClass() method. This will give you the runtime type of the object, regardless of what the type is of the variable that it is stored in. Use getClass() on the calling object (this) and on the passed in object and compare the results for equality to see if both objects have the same type.
+
+How can the method in the Manager utilise code in the Employee to avoid repetition?
+
+In the equals() method for the Manager we can call super.equals(object) to check if the Employee parts of the passed in Object are equal to that of the calling Manager so we don’t have to rewrite all of the field comparisons in the Manager class. The subclass may also not have access to the fields in the super class, and there may not be getters to retrieve them, so you’d have to call super.equals(object). We don’t want to have to expose stuff to our subclass if we don’t have to, so being able to call the equals method defined in the superclass gives us the best design and allows for code reuse.
+
+Note that super.equals() still has to check that the passed in object matches the type of the calling object, but the calling object is now a Manager and the code that is being run is the equals method that was written in the Employee class. Despite being written in the Employee class, the code this.getClass() actually gives us a Manager because this is referring to the calling object, not the class. So, this.getClass() gets us the runtime type of the calling object which in this case is a Manager
+
 ## D. Access Modifiers & Packages
 
 In the code in the `src/access` package, answer the questions marked `TODO`.
