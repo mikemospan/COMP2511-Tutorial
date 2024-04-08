@@ -1,41 +1,124 @@
-# Tutorial 09 - Solutions
+# Tutorial 09
 
-## A. The Game 
+## A. Finding Patterns
 
-In a simple game, different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance (e.g. a dice roll).
+In groups, determine a possible pattern that could be used to solve each of the following problems:
 
-* A king can move one square in any direction (including diagonally), and always causes 8 points of damage when attacking.
-* A queen can move to any square in the same column, row or diagonal as she is currently on, and has a 1 in 3 chance of inflicting 12 points of damage or a 2 out of 3 chance of inflicting 6 points of damage.
-* A dragon can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
+* Sorting collections of records in different orders.
 
-Use a suitable Design Pattern to model a solution to this problem. The code has been started for you inside the `Character` class.
+    > Strategy pattern. This what Java does with the `Collections.sort()` method. A `Comparator` can be provided to determine the order in which elements are sorted.
 
-> Template Pattern.
+* Modelling a file system
 
-## B. Evolution of Requirements
+    > Composite pattern. Both folders and files are filesystem entries. Files form the leaves, folders can contain files or other folders.
 
-This exercise continues on from Exercise B.
+* Updating a UI component when the state of a program changes.
 
-Suppose a requirements change was introduce that necessitated support for different sorts of armour.
+    > Observer pattern. If the state of the program is the subject and the UI an observer, the UI will be notified of any changes to the state and update accordingly.
 
-* A helmet reduces the amount of damage inflicted upon a character by 1 point.
-* Chain mail reduces the amount of damage by a half (rounded down).
-* A chest plate caps the amount of damage to 7, but also slows the character down. If the character is otherwise capable of moving more than one square at a time then this armour restricts each move to distances of 3 squares or less (by manhattan distance).
+* Parsing and evaluating arithmetic expressions.
 
-Use a suitable Design Pattern to realise these new requirements. Assume that, as this game takes place in a virtual world, there are no restrictions on the number of pieces of armour a character can wear and that the "order" in which armour is worn affects how it works. You may need to make a small change to the existing code.
+    > Composite pattern. The composite pattern can be used to represent a parse-tree. An example of this is given in the code.
 
-> Decorator Pattern.
+* Adjusting the brightness of a screen based on a light sensor.
 
-## C. Building a Game
+    > Observer pattern. If the light sensor is the subject, the observer could be notified on all significant changes to the amount of light hitting the sensor and adjust the brightness of the screen accordingly.
 
-Use the Builder Pattern to abstract the creation of objects, allowing for a game to be created in the following manner:
+Then pick one and start to think about potential entities and draw up a rough UML diagram.
 
+## B. Code and Design Smells
+
+In groups, discuss the following examples. Identify the code smells and any underlying design problems associated with them.
+
+a) 
+> Mark, Bill and Jeff are working on a PetShop application. The PetShop has functionality to feed, clean and exercise different types of animals. Mark notices that each time he adds a new species of animal to his system, he also has to rewrite all the methods in the PetShop so it can take care of the new animal.
+
+> Code smell - Divergent change\
+> Design problem - Open Closed Principle, high coupling
+
+b) 
 ```java
-new GameBuilder(width, height)
-    .createGame()
-    .addQueen("queen")
-    .addKing("king")
-    .addDragon("dragon");
-```
+public class Person {
+    private String firstName;
+    private String lastName;
+    private int age;
+    private int birthDay;
+    private int birthMonth;
+    private int birthYear;
+    private String streetAddress;
+    private String suburb;
+    private String city;
+    private String country;
+    private int postcode;
 
-How is this different from the Factory Pattern we used in Week 7? How does this design give us extra extensibility?
+    public Person(String firstName, String lastName, int age, int birthDay, int birthMonth, int birthYear,
+            String streetAddress, String suburb, String city, String country, int postcode) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.birthDay = birthDay;
+        this.birthMonth = birthMonth;
+        this.birthYear = birthYear;
+        this.streetAddress = streetAddress;
+        this.suburb = suburb;
+        this.city = city;
+        this.country = country;
+        this.postcode = postcode;
+    }
+    // Some various methods below
+    // ....
+}
+```
+> Data clumps, long parameter list\
+> Refactor by making more classes for birthday and address ("Extract Class"/ "Introduce Parameter Object")\
+> Design problem - DRY and KISS
+
+c) 
+```java
+public class MathLibrary {
+    List<Book> books;
+
+    int sumTitles {
+        int total = 0
+        for (Book b : books) {
+            total += b.title.titleLength;
+        }
+        return total;
+    }
+}
+
+public class Book {
+    Title title; // Our system just models books as titles (content doesn't matter)
+}
+
+public class Title {
+    int titleLength;
+
+    int getTitleLength() {
+        return titleLength;
+    }
+
+    void setTitleLength(int tL) {
+        titleLength = tL;
+    }
+}
+```
+> Some examples of code smells you can talk about 
+> - Inappropriate intimacy (accessing public fields)
+> - Message chains - students might bring up Law of Demeter here
+> - Data classes/Lazy classes
+> Design smell - High coupling, from encapsulation being broken\
+> Fixes - make things private, just delete the classes and represent titles as strings
+
+Now discuss as a class:
+- How do these code smells cause problems when developing code?
+> Discuss concepts like reusability, maintainability, extensibility (how fast does it take a new developer to understand what is happening)\
+> Note how b and c are opposite problems (not enough classes vs too many classes) - you can take any refactoring too far
+
+- Is a code smell always emblematic of a design problem?
+> No - e.g "switch statements" and "comments" are often listed as code smells but are not always actually smells
+
+## C. Revision Exercises
+
+Complete some of the Theory Revision questions [here](https://nw-syd-gitlab.cseunsw.tech/COMP2511/24T1/revision-questions).
+> Solutions are in the repo
