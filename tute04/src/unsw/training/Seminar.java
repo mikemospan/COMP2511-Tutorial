@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * An in person all day seminar with a maximum of 10 attendees.
+ * 
  * @author Robert Clifton-Everest
  *
  */

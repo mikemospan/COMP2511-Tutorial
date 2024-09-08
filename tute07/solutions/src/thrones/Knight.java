@@ -1,6 +1,3 @@
-/**
- *
- */
 package thrones;
 
 /**
@@ -10,8 +7,7 @@ package thrones;
  * @author Robert Clifton-Everest
  *
  */
-public class Knight extends Character {
-
+public class Knight extends CharacterBase {
     public Knight(int x, int y) {
         super(x, y);
     }
@@ -28,5 +24,4 @@ public class Knight extends Character {
         dy = Math.abs(dy);
         return (dx == 1 && dy == 2 || dx == 2 && dy == 1);
     }
-
 }

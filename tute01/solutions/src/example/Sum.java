@@ -17,8 +17,8 @@ public class Sum {
 
         // using streams!
         System.out.println("The sum is " + Arrays.asList(numbers).stream()
-                                                  .mapToInt(Integer::parseInt)
-                                                  .sum());
+                .mapToInt(Integer::parseInt)
+                .sum());
         scanner.close();
     }
 }

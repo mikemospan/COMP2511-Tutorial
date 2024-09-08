@@ -3,7 +3,6 @@ package access.package2;
 import access.package1.A;
 
 public class E extends A {
-
     public void methodE() {
         // Subclasses in a different package can access public and protected
         // members.
@@ -20,7 +19,8 @@ public class E extends A {
         // TODO Does the following line compile if uncommented?
         // System.out.println("varPro: " + a.varPro);
 
-        // ANSWER: No, because of a rule in java: A protected method of a class may be accessed
+        // ANSWER: No, because of a rule in java: A protected method of a class may be
+        // accessed
         // from outside the package in which it is declared only by the code
         // that is responsible for the implementation of the object
     }

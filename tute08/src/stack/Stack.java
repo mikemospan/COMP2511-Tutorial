@@ -7,19 +7,22 @@ import java.util.List;
 
 /**
  * A Simple Stack.
+ * 
  * @param <E>
  * 
  */
 public class Stack<E> implements Iterable<E> {
-    
     /**
      * Pushes an element onto the top of the stack.
+     * 
      * @param element
      */
-    public void push(E element) {}
+    public void push(E element) {
+    }
 
     /**
      * Removes the top element of the stack, and returns that element.
+     * 
      * @precondition The stack is not empty.
      */
     public E pop() {
@@ -46,7 +49,7 @@ public class Stack<E> implements Iterable<E> {
     public int size() {
         return 0;
     }
-    
+
     /**
      * Returns the stack as an ArrayList
      */
@@ -58,8 +61,8 @@ public class Stack<E> implements Iterable<E> {
         return 0;
     }
 
-    public static void prettyPrint(Stack<?> stack) {}
-        
+    public static void prettyPrint(Stack<?> stack) {
+    }
 
     public static void main(String[] args) {
         Stack<String> stack = new Stack<String>();
@@ -70,5 +73,4 @@ public class Stack<E> implements Iterable<E> {
         stack.push("today");
         prettyPrint(stack);
     }
-
 }

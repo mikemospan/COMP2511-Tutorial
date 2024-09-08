@@ -7,12 +7,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Restaurant {
-
     private String chargingStrategy = "standard";
     private String name;
     private List<Meal> menu = new ArrayList<Meal>();
     private List<String> members = new ArrayList<String>();
-    
+
     public Restaurant(String name) {
         this.name = name;
         JSONArray menuJSON = JSONHelper.readInData("src/restaurant/prices.json");
@@ -41,19 +40,28 @@ public class Restaurant {
                 } else {
                     return order.stream().mapToDouble(meal -> meal.getCost()).sum();
                 }
-            default: return 0;
+            default:
+                return 0;
         }
     }
 
     public void displayMenu() {
         double modifier = 0;
         switch (chargingStrategy) {
-            case "standard": modifier = 1; break;
-            case "holiday": modifier = 1.15; break;
-            case "happyHour": modifier = 0.7; break;
-            case "discount": modifier = 1; break;
+            case "standard":
+                modifier = 1;
+                break;
+            case "holiday":
+                modifier = 1.15;
+                break;
+            case "happyHour":
+                modifier = 0.7;
+                break;
+            case "discount":
+                modifier = 1;
+                break;
         }
-        
+
         for (Meal meal : menu) {
             System.out.println(meal.getName() + " - " + meal.getCost() * modifier);
         }
@@ -63,5 +71,4 @@ public class Restaurant {
         Restaurant r = new Restaurant("XS");
         r.displayMenu();
     }
-
 }

@@ -6,7 +6,6 @@ package heist;
  * @author Nick Patrikeos + @your name
  */
 public class BankAccountAccessor {
-    
     private BankAccount account;
 
     public BankAccountAccessor(BankAccount account) {
@@ -25,10 +24,10 @@ public class BankAccountAccessor {
 
             try {
                 Thread.sleep(500);
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {
+            }
         }
 
         System.out.println(user + " is leaving the bank, the balance is $" + account.getBalance());
     }
-
 }

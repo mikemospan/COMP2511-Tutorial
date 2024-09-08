@@ -1,24 +1,24 @@
 # Tutorial 08
 
-> This is a big tute - don't feel obliged to get through everything. Probably pick one out of Singleton and Refactoring to focus on.
-
-## A. Generic Programming (30 minutes)
+## A. Generic Programming
 
 ### Part 1 - Implementation
 
-Inside `src/stack`, there are a series of stubs for a `Stack` class which takes in a generic type. There are a series of tests inside `StackTest.java` which currently fail. 
+Inside `src/stack`, there are a series of stubs for a `Stack` class which takes in a generic type. There are a series of tests inside `StackTest.java` which currently fail.
 
 Implement the methods so that the tests pass, using an `ArrayList` to store the internal data structure. Answer the following questions:
 
-1. What is `E`? 
+1. What is `E`?
 
 > Generic type
 
 2. What is the `Iterable` interface? Why does it have an `E` as well? What methods does it force us to implement?
 
-> Iterable - something that can be iterated over. 
-> Parameterised as `.next()` it will return elements of type E
-> Forces us to implement the `.iterator()` method. 
+> Iterable - something that can be iterated over.
+>
+> Parameterised as `.next()` it will return elements of type `E`
+>
+> Forces us to implement the `.iterator()` method.
 
 3. When completing `toArrayList`, why do we need to make a copy rather than just returning our internal ArrayList?
 
@@ -39,6 +39,7 @@ public static Integer sumStack(Stack<? extends Integer> stack);
 5. What does the `<? extends Type>` and `<? super Type>` mean?
 
 > `extends` - the parameterised type must be a class or subclass of the given type
+>
 > `super` - the parameterised type must be a class or superclass of the given type
 
 6. How could we change our class definition to restrict the parameterisation?
@@ -59,26 +60,66 @@ Having pushed the words "hello", "how", "are", "you", "today" on, the following 
 
 8. We need to go through the stack and print out each element with a space, except for the last one (which doesn't have a space). There are a couple of ways to do this, but create an `Iterator` and use the `.next()` method to traverse the stack.
 
-## B. Money Heist
+> See [`solutions/src/stack`](./solutions/src/stack/)
 
-> See [solutions/src/heist](solutions/src/heist).
+## B. Singleton Pattern & Concurrency
 
-## C. Refactoring to Patterns
+Consider the Bank Account class from Lab 04. What if multiple people try to access the bank account at the same time? Inside `src/unsw/heist` are three classes:
 
-### File System Viewer
+- `BankAccount`, from Lab 04.
+- `BankAccountAccessor`. Objects of this type are an instance of an access to a bank account to withdraw money a given number of times by given amounts.
+- `BankAccountThreadedAccessor`, which `extends Thread`, and overrides the method `run` to create a new instance of `BankAccountAccessor` and access the bank.
 
-- Look at solutions/raw_patches to see a series of patches.
-- Look at solutions/annotated_patches for some very explicit step by step instructions on how you *could* do it.
-    - In reality you may find it a bit awkward to exactly match the step by step since this is a small refactoring so you would probably just do everything by itself but it's fine.
-- There is also solutions/fs for the final version.
+Currently when you run the code, you will find that each thread accesses the bank at the same time (which doesn't make sense). Most of the time this just means that each accessor tries to make as many transactions as they can before the bank runs out of money:
 
-Your task is to refactor a simple FileSystem viewer using both low level and design level refactoring to enable you to have an estimation of a file size (that updates as you open inner folders).  The original code consists of only 150 lines of code and you won't be writing significantly more than that.
+```
+The balance is: $100
+Rio is accessing the bank.
+Denver is accessing the bank.
+Tokyo is accessing the bank.
+Tokyo successfully withdrew $6
+Denver successfully withdrew $49
+Rio successfully withdrew $20
+Tokyo successfully withdrew $6
+Denver failed to withdraw $49.
+Rio failed to withdraw $20.
+Tokyo successfully withdrew $6
+Rio failed to withdraw $20.
+Denver is leaving the bank, the balance is $13
+Tokyo successfully withdrew $6
+Rio failed to withdraw $20.
+Tokyo successfully withdrew $6
+Rio failed to withdraw $20.
+Tokyo failed to withdraw $6.
+Rio is leaving the bank, the balance is $1
+Tokyo is leaving the bank, the balance is $1
+```
 
-The folder `fs` contains a very simple file system viewer using a TreeView that was pretty heavily modified from a beautiful guide given by; https://huguesjohnson.com/programming/java/javafx-treeview-browser/ (license in LICENSE).
+In some cases though, some strange behaviour is produced by this **race condition**:
 
-> TreeItem is the controller for a TreeCell (view), so it holds the model and reacts to events in the view (expandables) and then adjusts the model/view accordingly.  It uses observer events for things like expandables and when the number of children change.  This then propagates all the way up, which is pretty cool.
+```
+Denver is accessing the bank.
+Tokyo is accessing the bank.
+The final balance is: $100
+Rio is accessing the bank.
+Rio successfully withdrew $20
+Tokyo successfully withdrew $6
+Denver successfully withdrew $49
+Tokyo successfully withdrew $6
+Denver failed to withdraw $49.
+Rio successfully withdrew $20
+Rio failed to withdraw $20.
+Denver is leaving the bank, the balance is -1
+Tokyo failed to withdraw $6.
+Rio failed to withdraw $20.
+Tokyo failed to withdraw $6.
+Rio failed to withdraw $20.
+Tokyo failed to withdraw $6.
+Tokyo failed to withdraw $6.
+Rio is leaving the bank, the balance is -1
+Tokyo is leaving the bank, the balance is -1
+```
 
-Here is some hints:
-- You'll want some backend structure to represent the file system.
-- Since the file size estimation is going to be lazy you'll want some way to communicate changes into the model including re-estimations of file sizes.
-- Don't just recalculate the file sizes with every changes, only stat what you need to.
+Use the Singleton Pattern to ensure that only one person can access the bank at a time. You can assume for simplicity's sake that only one access to *any* bank account can ever be made at a given time.
+
+> See [`solutions/src/heist`](./solutions/src/heist)

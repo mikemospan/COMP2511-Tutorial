@@ -1,6 +1,4 @@
-
 public class ComputerVisitor {
-    
     private boolean validated = false;
 
     public void visit(Keyboard keyboard) {
@@ -31,10 +29,9 @@ public class ComputerVisitor {
 
         computer.accept(visitor);
         visitor.validate();
-        
+
         computer.accept(visitor);
         keyboard.accept(visitor);
         mouse.accept(visitor);
     }
-
 }

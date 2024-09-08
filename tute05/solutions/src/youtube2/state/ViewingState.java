@@ -3,7 +3,6 @@ package youtube2.state;
 import youtube2.Viewing;
 
 public abstract class ViewingState {
-
     private Viewing viewing;
 
     public ViewingState(Viewing viewing) {
@@ -19,5 +18,4 @@ public abstract class ViewingState {
     public Viewing getViewing() {
         return viewing;
     }
-
 }

@@ -1,6 +1,4 @@
-
 public class Keyboard implements ComputerComponent {
-
     private String name;
     private int numKeys = 36;
 
@@ -8,11 +6,11 @@ public class Keyboard implements ComputerComponent {
         this.name = name;
     }
 
-	@Override
-	public void accept(ComputerVisitor visitor) {
+    @Override
+    public void accept(ComputerVisitor visitor) {
         visitor.visit(this);
     }
-    
+
     public int getNumKeys() {
         return numKeys;
     }
@@ -25,5 +23,4 @@ public class Keyboard implements ComputerComponent {
     public String toString() {
         return name;
     }
-
 }

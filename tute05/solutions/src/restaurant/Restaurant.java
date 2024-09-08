@@ -10,12 +10,11 @@ import restaurant.strategy.ChargingStrategy;
 import restaurant.strategy.StandardStrategy;
 
 public class Restaurant {
-
     private ChargingStrategy chargingStrategy = new StandardStrategy();
     private String name;
     private List<Meal> menu = new ArrayList<Meal>();
     private List<String> members = new ArrayList<String>();
-    
+
     public Restaurant(String name) {
         this.name = name;
         JSONArray menuJSON = JSONHelper.readInData("src/restaurant/prices.json");
@@ -32,7 +31,7 @@ public class Restaurant {
 
     public void displayMenu() {
         double modifier = chargingStrategy.standardChargeModifier();
-        
+
         for (Meal meal : menu) {
             System.out.println(meal.getName() + " - " + meal.getCost() * modifier);
         }
@@ -50,5 +49,4 @@ public class Restaurant {
         Restaurant r = new Restaurant("XS");
         r.displayMenu();
     }
-
 }

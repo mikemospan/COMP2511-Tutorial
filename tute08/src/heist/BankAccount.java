@@ -9,7 +9,6 @@ package heist;
  *
  */
 public class BankAccount {
-    
     private int balance;
 
     public BankAccount() {
@@ -46,6 +45,7 @@ public class BankAccount {
 
     /**
      * Get the balance of the account.
+     * 
      * @return
      */
     public int getBalance() {

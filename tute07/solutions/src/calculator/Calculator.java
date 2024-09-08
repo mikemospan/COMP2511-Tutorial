@@ -1,10 +1,9 @@
 package calculator;
 
 /**
-* @author Nick Patrikeos
-**/
+ * @author Nick Patrikeos
+ **/
 public class Calculator {
-
     private Expression expression;
 
     public Calculator(Expression expression) {
@@ -17,5 +16,4 @@ public class Calculator {
     public double calculate() {
         return expression.compute();
     }
-
 }

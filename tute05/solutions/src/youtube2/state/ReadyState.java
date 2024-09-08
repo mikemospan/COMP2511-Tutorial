@@ -3,27 +3,25 @@ package youtube2.state;
 import youtube2.Viewing;
 
 public class ReadyState extends ViewingState {
-
     public ReadyState(Viewing viewing) {
         super(viewing);
+        getViewing().setPlaying(false);
     }
 
     @Override
     public String onLock() {
         getViewing().changeState(new LockedState(getViewing()));
-        return "Locked";        
+        return "Locked";
     }
 
     @Override
     public String onPlay() {
-        String action = getViewing().startPlayback();
         getViewing().changeState(new PlayingState(getViewing()));
-        return action;
+        return "Playing.";
     }
 
     @Override
     public String onNext() {
-        return "Locked.";
+        return getViewing().getNextVideo();
     }
-    
 }

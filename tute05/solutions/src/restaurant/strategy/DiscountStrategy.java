@@ -5,7 +5,6 @@ import java.util.List;
 import restaurant.Meal;
 
 public class DiscountStrategy implements ChargingStrategy {
-
     private final double STANDARD_CHARGE = 1;
 
     @Override
@@ -18,5 +17,4 @@ public class DiscountStrategy implements ChargingStrategy {
     public double standardChargeModifier() {
         return STANDARD_CHARGE;
     }
-    
 }

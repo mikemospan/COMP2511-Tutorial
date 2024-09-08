@@ -4,17 +4,18 @@ import java.time.LocalDate;
 
 /**
  * An employee that is also a manager.
+ * 
  * @author Robert Clifton-Everest
  *
  */
 public class Manager extends Employee {
-
     private LocalDate hireDate;
 
     /**
      * Create a manager with the given name, salary and hiring date.
-     * @param name The full name of the manager.
-     * @param salary The manager's salary in dollars.
+     * 
+     * @param name     The full name of the manager.
+     * @param salary   The manager's salary in dollars.
      * @param hireDate The date the manager was hired.
      */
     public Manager(String name, int salary, LocalDate hireDate) {
@@ -27,8 +28,8 @@ public class Manager extends Employee {
      *
      * The manager is recorded as having been hired today.
      *
-     * @param name The full name of the manager.
-     * @param salary The manager's salary in dollars.
+     * @param name     The full name of the manager.
+     * @param salary   The manager's salary in dollars.
      * @param hireDate The date the manager was hired.
      */
     public Manager(String name, int salary) {
@@ -37,6 +38,7 @@ public class Manager extends Employee {
 
     /**
      * Get the manager's hire date.
+     * 
      * @return The date the manager was hired.
      */
     public LocalDate getHireDate() {
@@ -50,12 +52,13 @@ public class Manager extends Employee {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!super.equals(obj)) return false;
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
         Manager manager = (Manager) obj;
         if (hireDate.equals(manager.hireDate))
             return true;
         return false;
     }
-
 }

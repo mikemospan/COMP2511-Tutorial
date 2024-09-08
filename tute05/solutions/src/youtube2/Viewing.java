@@ -4,7 +4,6 @@ import youtube2.state.ReadyState;
 import youtube2.state.ViewingState;
 
 public class Viewing {
-    
     private Video video;
     private Video nextVideo;
     private User user;
@@ -29,10 +28,6 @@ public class Viewing {
         this.state = newState;
     }
 
-    public String startPlayback() {
-        return "Playing video " + video.getName() + "!!!";
-    }
-
     public String getNextVideo() {
         return nextVideo.getName();
     }
@@ -53,7 +48,6 @@ public class Viewing {
     public static void main(String[] args) {
         User producer = new User("Ashesh");
         Viewing view = new Viewing(new Video("Video 1", 10, producer), new Video("Video 2", 14, producer), producer);
-        view.setPlaying(true);
 
         System.out.println(view.play());
         System.out.println(view.play());
@@ -63,5 +57,4 @@ public class Viewing {
         System.out.println(view.next());
         System.out.println(view.play());
     }
-
 }

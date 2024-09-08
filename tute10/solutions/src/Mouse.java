@@ -1,4 +1,3 @@
-
 public class Mouse implements ComputerComponent {
     private String name;
 
@@ -6,14 +5,13 @@ public class Mouse implements ComputerComponent {
         this.name = name;
     }
 
-	@Override
-	public void accept(ComputerVisitor visitor) {
+    @Override
+    public void accept(ComputerVisitor visitor) {
         visitor.visit(this);
     }
-    
+
     @Override
     public String toString() {
         return name;
     }
-    
 }

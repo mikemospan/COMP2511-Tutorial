@@ -1,4 +1,4 @@
-# Tutorial 8
+# Tutorial 08
 
 ## A. Generic Programming
 
@@ -41,9 +41,9 @@ Having pushed the words "hello", "how", "are", "you", "today" on, the following 
 
 Consider the Bank Account class from Lab 04. What if multiple people try to access the bank account at the same time? Inside `src/unsw/heist` are three classes:
 
-* `BankAccount`, from Lab 04.
-* `BankAccountAccessor`. Objects of this type are an instance of an access to a bank account to withdraw money a given number of times by given amounts.
-* `BankAccountThreadedAccessor`, which `extends Thread`, and overrides the method `run` to create a new instanceof `BankAccountAccessor` and access the bank.
+- `BankAccount`, from Lab 04.
+- `BankAccountAccessor`. Objects of this type are an instance of an access to a bank account to withdraw money a given number of times by given amounts.
+- `BankAccountThreadedAccessor`, which `extends Thread`, and overrides the method `run` to create a new instance of `BankAccountAccessor` and access the bank.
 
 Currently when you run the code, you will find that each thread accesses the bank at the same time (which doesn't make sense). Most of the time this just means that each accessor tries to make as many transactions as they can before the bank runs out of money:
 
@@ -96,19 +96,3 @@ Tokyo is leaving the bank, the balance is -1
 ```
 
 Use the Singleton Pattern to ensure that only one person can access the bank at a time. You can assume for simplicity's sake that only one access to *any* bank account can ever be made at a given time.
-
-
-## C. Refactoring to Patterns
-
-### File System Viewer
-
-Your task is to refactor a simple FileSystem viewer using both low level and design level refactoring to enable you to have an estimation of a file size (that updates as you open inner folders).  The original code consists of only 150 lines of code and you won't be writing significantly more than that.
-
-The folder `fs` contains a very simple file system viewer using a TreeView that was pretty heavily modified from a beautiful guide given by; https://huguesjohnson.com/programming/java/javafx-treeview-browser/ (license in LICENSE).
-
-Here is some hints:
-- You'll want some backend structure to represent the file system.
-- Since the file size estimation is going to be lazy you'll want some way to communicate changes into the model including re-estimations of file sizes.
-- Don't just recalculate the file sizes with every changes, only stat what you need to.
-
-There is some JavaFX code to render a frontend for the application; if you want to set this up on VLab just post on the forum as it is configured to work locally.

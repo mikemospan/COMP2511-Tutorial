@@ -1,7 +1,6 @@
 package calculator;
 
 public class DivisionExpression implements Expression {
-    
     private Expression e1;
     private Expression e2;
 
@@ -13,5 +12,4 @@ public class DivisionExpression implements Expression {
     public double compute() {
         return e1.compute() / e2.compute();
     }
-
 }

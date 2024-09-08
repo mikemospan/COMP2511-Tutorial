@@ -6,13 +6,13 @@ package heist;
  * @author Nick Patrikeos + @your name
  */
 public class BankAccountThreadedAccessor extends Thread {
-
     private String user;
     private BankAccount account;
     private int numberOfWithdrawals;
     private int amountPerWithdrawal;
 
-    public BankAccountThreadedAccessor(String user, BankAccount account, int numberOfWithdrawals, int amountPerWithdrawal) {
+    public BankAccountThreadedAccessor(String user, BankAccount account, int numberOfWithdrawals,
+            int amountPerWithdrawal) {
         this.user = user;
         this.account = account;
         this.numberOfWithdrawals = numberOfWithdrawals;
@@ -27,7 +27,7 @@ public class BankAccountThreadedAccessor extends Thread {
     public static void main(String[] args) {
         BankAccount goldMint = new BankAccount();
         goldMint.deposit(100);
-        
+
         BankAccountThreadedAccessor accessor1 = new BankAccountThreadedAccessor("Rio", goldMint, 5, 20);
         accessor1.start();
 
@@ -39,5 +39,4 @@ public class BankAccountThreadedAccessor extends Thread {
 
         System.out.println("The balance is: $" + goldMint.getBalance());
     }
-
 }

@@ -9,7 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Tests for the Stack ADT. 
+ * Tests for the Stack ADT.
+ * 
  * @author Nick Patrikeos
  */
 public class StackTest {
@@ -49,7 +50,7 @@ public class StackTest {
         stack.push("you");
         stack.push("today");
         List<String> expected = new ArrayList<String>(Arrays.asList("today",
-        "you", "are", "how", "hello"));
+                "you", "are", "how", "hello"));
         int i = 0;
 
         for (String element : stack) {
@@ -67,5 +68,4 @@ public class StackTest {
         stack.push(4);
         assertEquals(10, Stack.sumStack(stack));
     }
-
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import restaurant.Meal;
 
 public class HappyHourStrategy implements ChargingStrategy {
-
     private final double STANDARD_RATE = 0.7;
     private final double MEMBER_RATE = 0.6;
 
@@ -19,5 +18,4 @@ public class HappyHourStrategy implements ChargingStrategy {
     public double standardChargeModifier() {
         return STANDARD_RATE;
     }
-    
 }

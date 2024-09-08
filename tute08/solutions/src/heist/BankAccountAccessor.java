@@ -6,11 +6,10 @@ package heist;
  * @author Nick Patrikeos + @your name
  */
 public class BankAccountAccessor {
-
     private static BankAccountAccessor AccessorInstance = null;
-    
+
     private BankAccount account;
-    
+
     public static synchronized BankAccountAccessor instance(BankAccount account) {
         if (AccessorInstance == null) {
             AccessorInstance = new BankAccountAccessor(account);
@@ -34,10 +33,10 @@ public class BankAccountAccessor {
 
             try {
                 Thread.sleep(500);
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {
+            }
         }
 
         System.out.println(user + " is leaving the bank, the balance is $" + account.getBalance());
     }
-
 }

@@ -1,7 +1,6 @@
 package calculator;
 
 public class Calculator {
-    
     /**
      * @preconditions a, b != null
      * @postconditions a + b
@@ -57,5 +56,4 @@ public class Calculator {
     public static Double tan(Double angle) {
         return Math.tan(angle);
     }
-
 }

@@ -5,7 +5,6 @@ import restaurant.Meal;
 import java.util.List;
 
 public interface ChargingStrategy {
-    
     /**
      * The cost of a meal.
      */
@@ -15,5 +14,4 @@ public interface ChargingStrategy {
      * Modifying factor of charges for standard customers.
      */
     public double standardChargeModifier();
-
 }

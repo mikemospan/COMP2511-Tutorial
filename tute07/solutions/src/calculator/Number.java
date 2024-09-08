@@ -1,7 +1,6 @@
 package calculator;
 
 public class Number implements Expression {
-
     private double number;
 
     public Number(double number) {
@@ -10,10 +9,9 @@ public class Number implements Expression {
 
     /**
      * @preconditions - none
-     * @postconditions - returns number 
+     * @postconditions - returns number
      */
     public double compute() {
         return number;
     }
-    
 }

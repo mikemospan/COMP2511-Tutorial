@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Wondrous {
-
     private final int MY_MAGIC_NUMBER = 42;
 
     public List<Integer> wondrous(int start) {
@@ -22,5 +21,4 @@ public class Wondrous {
 
         return sequence;
     }
-
 }

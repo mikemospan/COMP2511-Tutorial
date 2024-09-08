@@ -4,23 +4,23 @@
 
 In groups, determine a possible pattern that could be used to solve each of the following problems:
 
-* Sorting collections of records in different orders.
+- Sorting collections of records in different orders.
 
     > Strategy pattern. This what Java does with the `Collections.sort()` method. A `Comparator` can be provided to determine the order in which elements are sorted.
 
-* Modelling a file system
+- Modelling a file system
 
     > Composite pattern. Both folders and files are filesystem entries. Files form the leaves, folders can contain files or other folders.
 
-* Updating a UI component when the state of a program changes.
+- Updating a UI component when the state of a program changes.
 
     > Observer pattern. If the state of the program is the subject and the UI an observer, the UI will be notified of any changes to the state and update accordingly.
 
-* Parsing and evaluating arithmetic expressions.
+- Parsing and evaluating arithmetic expressions.
 
     > Composite pattern. The composite pattern can be used to represent a parse-tree. An example of this is given in the code.
 
-* Adjusting the brightness of a screen based on a light sensor.
+- Adjusting the brightness of a screen based on a light sensor.
 
     > Observer pattern. If the light sensor is the subject, the observer could be notified on all significant changes to the amount of light hitting the sensor and adjust the brightness of the screen accordingly.
 
@@ -30,13 +30,13 @@ Then pick one and start to think about potential entities and draw up a rough UM
 
 In groups, discuss the following examples. Identify the code smells and any underlying design problems associated with them.
 
-a) 
+a)
 > Mark, Bill and Jeff are working on a PetShop application. The PetShop has functionality to feed, clean and exercise different types of animals. Mark notices that each time he adds a new species of animal to his system, he also has to rewrite all the methods in the PetShop so it can take care of the new animal.
 
 > Code smell - Divergent change\
 > Design problem - Open Closed Principle, high coupling
 
-b) 
+b)
 ```java
 public class Person {
     private String firstName;
@@ -73,7 +73,7 @@ public class Person {
 > Refactor by making more classes for birthday and address ("Extract Class"/ "Introduce Parameter Object")\
 > Design problem - DRY and KISS
 
-c) 
+c)
 ```java
 public class MathLibrary {
     List<Book> books;
@@ -103,7 +103,7 @@ public class Title {
     }
 }
 ```
-> Some examples of code smells you can talk about 
+> Some examples of code smells you can talk about
 > - Inappropriate intimacy (accessing public fields)
 > - Message chains - students might bring up Law of Demeter here
 > - Data classes/Lazy classes
@@ -120,5 +120,5 @@ Now discuss as a class:
 
 ## C. Revision Exercises
 
-Complete some of the Theory Revision questions [here](https://nw-syd-gitlab.cseunsw.tech/COMP2511/24T1/revision-questions).
+Complete some of the Theory Revision questions [here](https://cgi.cse.unsw.edu.au/~cs2511/redirect/?path=COMP2511/24T3/students/_/revision-exercises).
 > Solutions are in the repo

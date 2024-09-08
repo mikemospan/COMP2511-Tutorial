@@ -7,18 +7,16 @@ import access.package1.C;
 import access.package2.D;
 
 public class TestAccess {
-	
 	public static void main(String[] args) {
-		
 		A objA = new A();
-		objA.methodA();  	
-	    System.out.println("---");
+		objA.methodA();
+		System.out.println("---");
 		B objB = new B();
 		objB.methodB();
-	    System.out.println("---");		
+		System.out.println("---");
 		C objC = new C();
 		objC.methodC();
-	    System.out.println("---");
+		System.out.println("---");
 		D objD = new D();
 		objD.methodD();
 	}

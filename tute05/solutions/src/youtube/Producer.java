@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Producer {
-    
     private String name;
     private List<User> subscribers = new ArrayList<User>();
     private List<Video> videos = new ArrayList<Video>();
@@ -30,5 +29,4 @@ public class Producer {
     public String toString() {
         return name;
     }
-
 }

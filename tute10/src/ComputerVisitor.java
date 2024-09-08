@@ -1,6 +1,4 @@
-
 public class ComputerVisitor {
-
     public static void main(String[] args) {
         ComputerComponent computer = new Computer("Corelli", 500);
         ComputerComponent keyboard = new Keyboard("Mechanical keyboard");
@@ -8,5 +6,4 @@ public class ComputerVisitor {
         ComputerVisitor visitor = new ComputerVisitor();
 
     }
-
 }

@@ -1,42 +1,24 @@
 package thrones;
 
-/**
- * A character in the simple grid game example.
- *
- * @author Robert Clifton-Everest
- *
- */
-public abstract class Character {
-    private int healthPoints;
+import java.util.List;
 
-    private int x, y;
+public interface Character {
+    public int getHealthPoints();
 
-    public Character(int x, int y) {
-        healthPoints = 100;
-        this.x = x;
-        this.y = y;
-    }
+    public int getX();
 
-    public int getHealthPoints() {
-        return healthPoints;
-    }
+    public int getY();
 
-    public int getX() {
-        return x;
-    }
+    public void setX(int x);
 
-    public int getY() {
-        return y;
-    }
+    public void setY(int y);
 
     /**
      * Cause this character the given amount of damage.
      *
      * @param points
      */
-    public void damage(int points) {
-        healthPoints -= points;
-    }
+    public void damage(int points);
 
     /**
      * This character attacks the given victim, causing them damage according to
@@ -44,7 +26,7 @@ public abstract class Character {
      *
      * @param victim
      */
-    public abstract void attack(Character victim);
+    public void attack(Character victim);
 
     /**
      * Can this character move by the given amount along the x and y axes.
@@ -53,5 +35,7 @@ public abstract class Character {
      * @param y
      * @return True if they can move by that amount, false otherwise
      */
-    public abstract boolean canMove(int dx, int dy);
+    public boolean canMove(int dx, int dy);
+
+    public MoveResult makeMove(int x, int y, List<Character> characters);
 }

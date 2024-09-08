@@ -1,7 +1,6 @@
 package calculator;
 
 public class Calculator {
-    
     public static Double add(Double a, Double b) {
         return a + b;
     }
@@ -29,5 +28,4 @@ public class Calculator {
     public static Double tan(Double angle) {
         return Math.tan(angle);
     }
-
 }

@@ -1,6 +1,3 @@
-/**
- *
- */
 package thrones;
 
 /**
@@ -11,8 +8,7 @@ package thrones;
  * @author Robert Clifton-Everest
  *
  */
-public class Queen extends Character {
-
+public class Queen extends CharacterBase {
     public Queen(int x, int y) {
         super(x, y);
     }
@@ -29,5 +25,4 @@ public class Queen extends Character {
     public boolean canMove(int dx, int dy) {
         return (dx == 0 || dy == 0 || Math.abs(dx) == Math.abs(dy));
     }
-
 }
