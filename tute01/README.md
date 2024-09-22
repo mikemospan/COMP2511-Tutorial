@@ -24,7 +24,7 @@ After completing the program, your tutor will `git add`, `commit`, and `push` th
 
 1. Inside a new file called `Sum.java`, write a program that uses the `Scanner` class which reads in a line of numbers separated by spaces, and sums them.
 
-2. Inside a new file `Shouter.java`, Write a program that stores a message and has methods for getting the message, updating the message and printing it out in all caps. Write a `main()` method for testing this class.
+2. Inside a new file `Shouter.java`, write a program that stores a message and has methods for getting the message, updating the message and printing it out in all caps. Write a `main()` method for testing this class.
 
 ## E. Abstraction
 

@@ -99,7 +99,6 @@ This exercise continues on from the work in Exercise C.
 > Although a subtype can also be treated as the supertype, they are inherently unequal. A subtype is a more specific version and hence can’t be treated as an equal to a concrete instance of the supertype. In this example, a `Manager` is a more specific version of an `Employee` with additional fields. However, even if the `Manager` did not have additional fields, there should be something that the `Manager` does to differentiate it from the `Employee`. That is a `Manager` and an `Employee` with the same data in their fields, should still be considered unequal.
 
 Override the `equals()` method inherited from `Object` in both classes.
-
 - What key things should the `equals()` method do?
 
 > Typical Structure of the equals method will include:
@@ -129,5 +128,5 @@ Override the `equals()` method inherited from `Object` in both classes.
 In the `src/access` package, answer the questions marked `TODO`.
 
 > See code [here](./solutions/access/)
-
-![](./image.png)
+>
+> ![](./image.png)

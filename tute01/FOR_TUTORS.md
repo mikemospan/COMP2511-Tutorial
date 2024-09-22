@@ -18,7 +18,7 @@ Your tutor will run a short introduction/icebreaker activity.
 
 Your tutor is going to import the `tute01` code into VSCode and will complete the Hello World program. Things to note:
 
-- The JDK version used (java-11-openjdk on the CSE system; possibly jdk-11 on your laptop).
+- The JDK version used (JDK 17).
 - How new classes are created.
 - How VSCode's autocomplete gives detailed information about the methods that can be invoked.
 - Where the output appears.

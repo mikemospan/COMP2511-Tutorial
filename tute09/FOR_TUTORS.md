@@ -8,7 +8,7 @@ In groups, determine a possible pattern that could be used to solve each of the 
 
     > Strategy pattern. This what Java does with the `Collections.sort()` method. A `Comparator` can be provided to determine the order in which elements are sorted.
 
-- Modelling a file system
+- Modelling a file system.
 
     > Composite pattern. Both folders and files are filesystem entries. Files form the leaves, folders can contain files or other folders.
 

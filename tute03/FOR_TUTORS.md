@@ -10,33 +10,33 @@ In your project groups, answer the following questions.
 
 2. What is the output by executing `A.f()` in the following?
 
-   ```java
-   public class A {
-       public static void f() {
-           C c = new C();
-           c.speak();
-           B b = c;
-           b.speak();
-           b = new B();
-           b.speak();
-           c.speak();
-       }
-   }
+    ```java
+    public class A {
+        public static void f() {
+            C c = new C();
+            c.speak();
+            B b = c;
+            b.speak();
+            b = new B();
+            b.speak();
+            c.speak();
+        }
+    }
 
 
-   public class B {
-       public void speak() {
-           System.out.println("moo");
-       }
-   }
+    public class B {
+        public void speak() {
+            System.out.println("moo");
+        }
+    }
 
 
-   public class C extends B {
-       public void speak() {
-           System.out.println("quack");
-       }
-   }
-   ```
+    public class C extends B {
+        public void speak() {
+            System.out.println("quack");
+        }
+    }
+    ```
 
 > The program will print out:
 >
@@ -49,39 +49,39 @@ In your project groups, answer the following questions.
 
 3. What is the output by executing `A.f()` in the following?
 
-   ```java
-   public class A {
-       public static void f() {
-           B b1 = new B();
-           B b2 = new B();
-           b1.incX();
-           b2.incY();
-           System.out.println(b1.getX() + " " + b1.getY());
-           System.out.println(b2.getX() + " " + b2.getY());
-       }
-   }
+    ```java
+    public class A {
+        public static void f() {
+            B b1 = new B();
+            B b2 = new B();
+            b1.incX();
+            b2.incY();
+            System.out.println(b1.getX() + " " + b1.getY());
+            System.out.println(b2.getX() + " " + b2.getY());
+        }
+    }
 
-   public class B {
-       private int x;
-       private static int y;
+    public class B {
+        private int x;
+        private static int y;
 
-       public int getX() {
-           return x;
-       }
+        public int getX() {
+            return x;
+        }
 
-       public int getY() {
-           return y;
-       }
+        public int getY() {
+            return y;
+        }
 
-       public void incX() {
-           x++;
-       }
+        public void incX() {
+            x++;
+        }
 
-       public void incY() {
-           y++;
-       }
-   }
-   ```
+        public void incY() {
+            y++;
+        }
+    }
+    ```
 
 > The program will print out:
 >
@@ -133,14 +133,13 @@ Inside `src/wondrous/Wondrous.java` there is an implementation of this algorithm
 ### Part 1 - IDE Programming
 
 Explore the IDE tools built into VSCode:
-
 1. Put a breakpoint on line 13 and run the tests in Debug Mode.
 2. Briefly discuss different features of Debug Mode:
-   - The variables section
-   - The debug console
-   - The 'watch' section
-   - The call stack
-   - Debug control
+    - The variables section
+    - The debug console
+    - The 'watch' section
+    - The call stack
+    - Debug control
 3. Use the debug tools and the given algorithm to determine why the test is failing, and fix the bug.
 
 > See [`Wondrous.java`](./solutions/src/wondrous/Wondrous.java) and [`WondrousTest.java`](./solutions/src/wondrous/test/WondrousTest.java)

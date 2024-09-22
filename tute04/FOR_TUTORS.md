@@ -44,20 +44,17 @@ Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution
 ## B. Streams and Lambdas
 
 1. Inside `src/stream/App.java`, rewrite the following code using the `.forEach()` method and a lambda:
-
 ```java
 List<String> strings = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
 for (String string : strings) {
-   System.out.println(string);
+    System.out.println(string);
 }
 ```
-
 2. In the above example, discuss two different ways to write lambda expressions.
 
 > One-liner or with curly braces
 
 3. What is a stream? Rewrite the following code to use a stream and the `map` function.
-
 ```java
 List<String> strings2 = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
 List<Integer> ints = new ArrayList<Integer>();
@@ -65,7 +62,6 @@ for (String string : strings2) {
     ints.add(Integer.parseInt(string));
 }
 ```
-
 4. Modify your answer to (3) to use a scope operator instead of a normal lambda.
 
 > See [`App.java`](./solutions/src/stream/App.java)
@@ -86,8 +82,8 @@ for (String string : strings2) {
 > - You have been told you don't have to account for invalid Satellite/Device IDs, and that no 2 devices would ever occupy the same position. These are examples of preconditions which you don't have to account for (the behaviour of the ADT is undefined in these cases).
 
 4. In the `Calculator` code, specify a contract for each of the functions. Hint: for the trig functions, look at the interface of the `Math` functions in the Java documentation. Key edge cases to consider:
-   - Dividing by zero
-   - `tan(Math.PI / 2)`
+    - Dividing by zero
+    - `tan(Math.PI / 2)`
 
 > See [`Calculator.java`](./solutions/src/calculator/Calculator.java)
 

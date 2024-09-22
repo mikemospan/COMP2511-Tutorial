@@ -27,7 +27,6 @@ Inside `src/thrones`, there is some code to model a simple chess-like game. In t
 We won't concern ourselves with the logic of the game in this exercise per se, but instead the creation of objects.
 
 We want to refactor the code so that when the characters are created, they are put in a random location in a grid of length 5.
-
 1. How does the Factory Pattern (AKA Factory Method) allow us to abstract construction of objects, and how will it improve our design with this new requirement?
 
 > We can abstract the construction of the character objects - this means we are not dealing directly with a constructor. In this case, we can abstract the generating of random numbers to someone else (the factory in this case) and simply call `CharacterFactory.createKing` etc, which makes our code more clean and less likely for `Game` to cause problems with creating the objects itself.

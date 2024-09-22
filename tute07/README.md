@@ -20,13 +20,13 @@ Inside `src/thrones`, there is some code to model a simple chess-like game. In t
 - A king can move one square in any direction (including diagonally), and always causes 8 points of damage when attacking.
 - A knight can move like a knight in chess (in an L shape), and has a 1 in 2 chance of inflicting 10 points of damage when attacking.
 - A queen can move to any square in the same column, row or diagonal as she is currently on, and has a 1 in 3 chance of inflicting 12 points of damage and a 2 out of 3 chance of inflicting 6 points of damage.
-- A troll can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
+- A dragon can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
 
 We won't concern ourselves with the logic of the game in this exercise per se, but instead the creation of objects.
 
 We want to refactor the code so that when the characters are created, they are put in a random location in a grid of length 5.
 1. How does the Factory Pattern (AKA Factory Method) allow us to abstract construction of objects, and how will it improve our design with this new requirement?
-2. Use the Factory Pattern to create a series of object factories for each of the character types, and change the main method of Game.java to use these factories.
+2. Use the Factory Pattern to create a series of object factories for each of the character types, and change the `main` method of `Game.java` to use these factories.
 
 ## C. Evolution of Requirements
 
