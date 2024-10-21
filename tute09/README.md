@@ -5,10 +5,12 @@
 In groups, determine a possible pattern that could be used to solve each of the following problems:
 
 - Sorting collections of records in different orders.
-- Modelling a file system.
+- Listing the contents of a file system.
+- Traversing through a linked list without knowing the underlying representation.
 - Updating a UI component when the state of a program changes.
-- Parsing and evaluating arithmetic expressions.
-- Adjusting the brightness of a screen based on a light sensor.
+- Allowing users to remap their movement controls to different buttons on a game controller.
+- Creating a skeleton implementation for a payment processing algorithm that varies in logic based on the type (e.g. credit card, PayPal)
+- A frozen yogurt shop model which alters the cost and weight of a bowl of frozen yogurt based on the toppings that customers choose to add before checkout.
 
 Then pick one and start to think about potential entities and draw up a rough UML diagram.
 
@@ -17,9 +19,11 @@ Then pick one and start to think about potential entities and draw up a rough UM
 In groups, discuss the following examples. Identify the code smells and any underlying design problems associated with them.
 
 a)
+
 > Mark, Bill and Jeff are working on a PetShop application. The PetShop has functionality to feed, clean and exercise different types of animals. Mark notices that each time he adds a new species of animal to his system, he also has to rewrite all the methods in the PetShop so it can take care of the new animal.
 
 b)
+
 ```java
 public class Person {
     private String firstName;
@@ -54,6 +58,7 @@ public class Person {
 ```
 
 c)
+
 ```java
 public class MathLibrary {
     List<Book> books;
@@ -85,10 +90,25 @@ public class Title {
 ```
 
 Now discuss as a class:
+
 - How do these code smells cause problems when developing code?
 
 - Is a code smell always emblematic of a design problem?
 
-## C. Revision Exercises
+## C. Visitor Pattern
+
+In this scenario we have `Computer`s, `Keyboard`s and `Mouse`s which all are of type `ComputerComponent`. We want to be able to 'visit' different types of Computer components by logging the following messages:
+
+```
+Looking at computer Corelli with memory 500 GB.
+Looking at keyboard Mechanical keyboard which has 36 keys.
+Looking at mouse Bluetooth mouse.
+```
+
+In particular though, anyone which is visiting a `Computer` must be **validated** prior to being able to visit.
+
+Extend/modify the starter code to use the Visitor Pattern to allow different computer components to be visited.
+
+## D. Revision Exercises
 
 Complete some of the Theory Revision questions [here](https://cgi.cse.unsw.edu.au/~cs2511/redirect/?path=COMP2511/24T3/students/_/revision-exercises).
