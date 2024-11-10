@@ -30,4 +30,10 @@ Your tutor will run you through a Kahoot! They will share a code with you.
 
 > https://create.kahoot.it/share/comp2511-week-10-kahoot/fba8b040-a51e-4731-ab2e-07199d92c3ac
 
+New Kahoot since 24T3:
+
+> https://create.kahoot.it/share/comp2511-week-10-kahoot/cc939a7c-4917-40d6-942d-db9c87bf803d
+
+Let Carl Buchanan know if there are any difficulties :)
+
 After that you can spend time with your tutor to review any topics in the course that you feel you want to build more confidence in.
