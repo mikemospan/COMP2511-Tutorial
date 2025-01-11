@@ -11,7 +11,6 @@ public class Wondrous {
         if (start < 1) {
             throw new IllegalArgumentException("wondrous start must be >= 1");
         }
-
         if (start == 1) {
             return new ArrayList<Integer>();
         }

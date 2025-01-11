@@ -4,9 +4,8 @@ import java.util.List;
 
 /**
  * A character in the simple grid game example.
- *
+ * 
  * @author Robert Clifton-Everest
- *
  */
 public abstract class CharacterBase implements Character {
     private int healthPoints;
@@ -41,7 +40,7 @@ public abstract class CharacterBase implements Character {
 
     /**
      * Cause this character the given amount of damage.
-     *
+     * 
      * @param points
      */
     public void damage(int points) {

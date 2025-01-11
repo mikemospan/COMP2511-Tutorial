@@ -1,14 +1,13 @@
 # Tutorial 10
-
 ## A. MyExperience
-
 It's time to fill out MyExperience!!
 
 ## B. Builder Pattern
-
 In our system, we have trains which contain many engines and/or wagons. As in a normal train, these engines/wagons are ordered sequentially from the front of the train to the back.
 
 Engines provide a certain amount of power and wagons require a certain amount of power to pull. At each point along the train, taking into account preceeding engines/wagons, the sum of the engine power must be greater than the sum of the wagon's required power. Otherwise, the rest of the train will be left behind!
+
+There are three types of wagons:
 
 > - Passenger wagons which require 500 engine power each
 >
@@ -18,22 +17,14 @@ Engines provide a certain amount of power and wagons require a certain amount of
 
 Create a **train builder** that constructs a train in order, wagon by wagon with the above constraint. If the above constraint is violated at any point, throw an `IllegalStateException`.
 
+Write a simple test in main that calls the builder directly to construct a train.
 > See solutions
 
-How could you extend this solution to add `ToyTrains` and a `ToyTrainBuilder` to the system?
-
+Question: How could you extend this solution to add `ToyTrains` and a `ToyTrainBuilder` to the system?
 > This would require a builder interface and separate concrete builders, similar to the lecture examples
 
 ## C. Kahoot + General Revision
-
 Your tutor will run you through a Kahoot! They will share a code with you.
-
-> https://create.kahoot.it/share/comp2511-week-10-kahoot/fba8b040-a51e-4731-ab2e-07199d92c3ac
-
-New Kahoot since 24T3:
-
 > https://create.kahoot.it/share/comp2511-week-10-kahoot/cc939a7c-4917-40d6-942d-db9c87bf803d
-
-Let Carl Buchanan know if there are any difficulties :)
 
 After that you can spend time with your tutor to review any topics in the course that you feel you want to build more confidence in.

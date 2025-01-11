@@ -7,5 +7,4 @@ public class CargoWagon extends Wagon {
     public CargoWagon() {
         super(TYPE);
     }
-    
 }

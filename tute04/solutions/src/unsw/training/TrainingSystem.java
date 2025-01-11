@@ -8,7 +8,7 @@ public class TrainingSystem {
 
     /**
      * Try to booking training for an employee, given their availability.
-     *
+     * 
      * @param employee
      * @param availability
      * @return The date of their seminar if booking was successful, null there

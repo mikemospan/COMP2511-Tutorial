@@ -1,9 +1,6 @@
 # Tutorial 04
-
 ## A. Design Principles
-
 ### Part 1: Law of Demeter
-
 In the `unsw.training` package there is some skeleton code for a training system.
 
 - Every employee must attend a whole day training seminar run by a qualified trainer
@@ -17,11 +14,9 @@ In the `TrainingSystem` class there is a method to book a seminar for an employe
 4. More generally, are getters essentially a means of violating the principle of least knowledge? Does this make using getters bad design?
 
 ### Part 2: Liskov Substitution Principle
-
 Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution Principle?
 
 ## B. Streams and Lambdas
-
 1. Inside `src/stream/App.java`, rewrite the following code using the `.forEach()` method and a lambda:
 ```java
 List<String> strings = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
@@ -41,7 +36,6 @@ for (String string : strings2) {
 4. Modify your answer to (3) to use a scope operator instead of a normal lambda.
 
 ## C. Design by Contract
-
 1. What is Design by Contract?
 2. Discuss briefly as a class how you have used Design by Contract already in previous courses.
 3. Discuss how Design By Contract was applied in the Blackout assignment.

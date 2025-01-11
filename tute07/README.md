@@ -1,7 +1,5 @@
 # Tutorial 07
-
 ## A. Composite Pattern
-
 Inside `src/calculator`, use the Composite Pattern to write a simple calculator that evaluates an expression. Your calculator should be able to:
 
 - Add two expressions
@@ -14,7 +12,6 @@ There should be a `Calculator` class as well which can have an expression passed
 Design a solution, create stubs, write failing unit tests, then implement the functions.
 
 ## B. Factory Pattern
-
 Inside `src/thrones`, there is some code to model a simple chess-like game. In this game different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance. There are four types of characters:
 
 - A king can move one square in any direction (including diagonally), and always causes 8 points of damage when attacking.
@@ -29,7 +26,6 @@ We want to refactor the code so that when the characters are created, they are p
 2. Use the Factory Pattern to create a series of object factories for each of the character types, and change the `main` method of `Game.java` to use these factories.
 
 ## C. Evolution of Requirements
-
 This exercise continues on from Exercise B.
 
 Suppose a requirements change was introduce that necessitated support for different sorts of armour.

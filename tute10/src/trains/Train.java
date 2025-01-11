@@ -11,10 +11,10 @@ public class Train {
     }
 
     public static class TrainBuilder {
-    
+        
     }
 
     public static void main(String[] args) {
-    
+        
     }
 }

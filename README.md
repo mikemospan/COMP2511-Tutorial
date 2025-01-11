@@ -1,1 +1,1 @@
-See each's tutorial folder's `FOR_TUTOR.md`
+See each's tutorial folder's `Solutions.md`

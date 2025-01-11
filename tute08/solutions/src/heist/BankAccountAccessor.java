@@ -34,6 +34,7 @@ public class BankAccountAccessor {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
+                
             }
         }
 

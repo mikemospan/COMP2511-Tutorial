@@ -10,6 +10,5 @@ public class YoutubeTest {
         u3.subscribeTo(u1);
 
         u1.postVideo("The Observer Pattern", 20);
-
     }
 }

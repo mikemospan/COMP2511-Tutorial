@@ -19,9 +19,9 @@ public class E extends A {
         // TODO Does the following line compile if uncommented?
         // System.out.println("varPro: " + a.varPro);
 
-        // ANSWER: No, because of a rule in java: A protected method of a class may be
-        // accessed
-        // from outside the package in which it is declared only by the code
-        // that is responsible for the implementation of the object
+        // ANSWER: No, because of a rule in java: A protected
+        // method of a class may be accessed from outside the package
+        // in which it is declared only by the code that is responsible
+        // for the implementation of the object
     }
 }

@@ -2,7 +2,8 @@ package access.package1;
 
 /**
  * @author Aarthi
- *         A class defining variables with different access modifiers
+ * 
+ * A class defining variables with different access modifiers
  */
 public class A {
     int var = 10;

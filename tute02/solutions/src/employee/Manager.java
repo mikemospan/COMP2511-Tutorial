@@ -6,7 +6,6 @@ import java.time.LocalDate;
  * An employee that is also a manager.
  * 
  * @author Robert Clifton-Everest
- *
  */
 public class Manager extends Employee {
     private LocalDate hireDate;
@@ -25,9 +24,9 @@ public class Manager extends Employee {
 
     /**
      * Create a manager with the given name and salary.
-     *
+     * 
      * The manager is recorded as having been hired today.
-     *
+     * 
      * @param name     The full name of the manager.
      * @param salary   The manager's salary in dollars.
      * @param hireDate The date the manager was hired.

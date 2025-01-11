@@ -10,7 +10,6 @@ import java.util.List;
 
 /**
  * Tests for the Stack ADT.
- * 
  * @author Nick Patrikeos
  */
 public class StackTest {

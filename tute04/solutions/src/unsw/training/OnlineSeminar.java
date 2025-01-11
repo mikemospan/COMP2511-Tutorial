@@ -7,7 +7,6 @@ import java.util.List;
  * record is kept of which employees have watched the seminar.
  * 
  * @author Robert Clifton-Everest
- *
  */
 public class OnlineSeminar extends Seminar {
     private String videoURL;

@@ -1,7 +1,5 @@
 # Tutorial 09
-
 ## A. Finding Patterns
-
 In groups, determine a possible pattern that could be used to solve each of the following problems:
 
 - Sorting collections of records in different orders.
@@ -15,7 +13,6 @@ In groups, determine a possible pattern that could be used to solve each of the 
 Then pick one and start to think about potential entities and draw up a rough UML diagram.
 
 ## B. Code and Design Smells
-
 In groups, discuss the following examples. Identify the code smells and any underlying design problems associated with them.
 
 a)
@@ -96,7 +93,6 @@ Now discuss as a class:
 - Is a code smell always emblematic of a design problem?
 
 ## C. Visitor Pattern
-
 In this scenario we have `Computer`s, `Keyboard`s and `Mouse`s which all are of type `ComputerComponent`. We want to be able to 'visit' different types of Computer components by logging the following messages:
 
 ```
@@ -110,5 +106,4 @@ In particular though, anyone which is visiting a `Computer` must be **validated*
 Extend/modify the starter code to use the Visitor Pattern to allow different computer components to be visited.
 
 ## D. Revision Exercises
-
-Complete some of the Theory Revision questions [here](https://cgi.cse.unsw.edu.au/~cs2511/redirect/?path=COMP2511/24T3/students/_/revision-exercises).
+Complete some of the Theory Revision questions [here](https://cgi.cse.unsw.edu.au/~cs2511/redirect/?path=COMP2511/25T1/students/_/revision-exercises).

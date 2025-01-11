@@ -2,9 +2,8 @@ package employee;
 
 /**
  * A named salaried employee
- *
+ * 
  * @author Robert Clifton-Everest
- *
  */
 public class Employee {
     private String name;

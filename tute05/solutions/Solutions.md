@@ -1,7 +1,5 @@
 # Tutorial 05
-
 ## A. Strategy Pattern
-
 Inside `src/restaurant` is a solution for a restaurant payment system with the following requirements:
 
 - The restaurant has a menu, stored in a JSON file. Each meal on the menu has a name and price
@@ -37,11 +35,10 @@ public interface ChargingStrategy {
     public double standardChargeModifier();
 }
 ```
-> See [solutions/src/restaurant](./solutions/src/restaurant/)
+> See [solutions/src/restaurant](solutions/src/restaurant/)
 
 
 ## B. Observer Pattern
-
 In `src/youtube`, create a model for the following requirements of a Youtube-like video creating and watching service using the Observer Pattern:
 - A Producer has a name, a series of subscribers and videos
 - When a producer posts a new video, all of the subscribers are notified that a new video was posted
@@ -51,10 +48,9 @@ In `src/youtube`, create a model for the following requirements of a Youtube-lik
 Write a simple test with print statements inside `YoutubeTest.java`.
 
 Once this is done, think about what if we want to be able to produce videos and subscribe to videos as well (the way youtube actually works). In groups, draw a UML diagram refactoring the code so that the `Producer` and `User` classes are merged, whilst still using the Observer Pattern.
-> See [solutions/src/youtube](./solutions/src/youtube/)
+> See [solutions/src/youtube](solutions/src/youtube/)
 
 ## C. State Pattern
-
 This exercise continues on from Exercise B.
 
 Extend your solution to accomodate the following requirements:
@@ -71,4 +67,4 @@ The actions and state transitions are as follows:
 | Locked     | If playback is going, switch to Playing State. <br> If not, switch to Ready State | Return Error: Locked | Return Error: Locked |
 | Playing    | Switch to Locked State | Stops playback and switch to Ready State | Starts playing the next video |
 | Ready      | Switch to Locked State | Starts playback and switch to Playing State | Starts playing the next video |
-> See [solutions/src/youtube2](./solutions/src/youtube2/)
+> See [solutions/src/youtube2](solutions/src/youtube2/)

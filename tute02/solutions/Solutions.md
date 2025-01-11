@@ -1,9 +1,5 @@
 # Tutorial 02
-
-> There is quite a lot in this tutorial; don't feel compelled to finish it. Pick the three exercises you think are most helpful and go into depth on them.
-
 ## A. Code Review
-
 Your tutor will provide you a link or open up the `src/shapes`, and use the `Shape` and `Rectangle` classes.
 
 In groups, analyse the classes to answer the following questions:
@@ -11,30 +7,25 @@ In groups, analyse the classes to answer the following questions:
 1. What is the difference between `super` and `this`?
 2. What about `super(...)` and `this(...)`?
 3. What are static fields and methods?
-
 > `super`: The instance of the super class
 > `this`: The instance of this class (like self in python)
 > `super(...)` Runs the respective method in the super class
 > `this(...)` Runs the respective method in this class with the given parameters (used for method overloading)
 
 ## B. JavaDoc & Commenting
-
 Within the `src` directory, create a new package called `employee`.
 
 Create an `Employee` class which has private fields for an employee's name and salary and appropriate getters, setters, and constructors. Document the class with [JavaDoc](https://www.oracle.com/au/technical-resources/articles/java/javadoc-tool.html).
 
 Use VSCode to create the getters and setters.
-
-> See [`Employee.java`](./solutions/employee/Employee.java)
+> See [`Employee.java`](solutions/employee/Employee.java)
 
 In this course we are not going to require that you write JavaDoc, except when specified.
 
 - What is meant by the term "self-documenting code"?
-
 > Code that documents itself - it is readable inherently, through use of meaning variable and function names.
 
 - Explain why comments can be considered a code smell.
-
 > Comments can go stale - the code is updated but the comment remains the same, meaning they become irrelevant/misleading
 >
 > It could be argued that the requirement for a comment means that the code is not self-documenting (i.e. is not readable enough).
@@ -44,63 +35,49 @@ In this course we are not going to require that you write JavaDoc, except when s
 - Discuss as a class whether code should have comments / JavaDoc
 
 ## C. Basic Inheritance & Polymorphism
-
 This exercise continues on from the `Employee` class in Exercise B.
 
 - How many constructors should the class have? What arguments should they take?
-
 > Only one. If we don't define a constructor Java automatically generates one that takes no arguments. It makes little sense to have an employee with no name or salary, so the constructor should take the name and salary as arguments.
 
 Create a `Manager` class that is a subclass of `Employee` and has a field for the manager's hire date.
-
-> See [`Manager.java`](./solutions/employee/Manager.java)
+> See [`Manager.java`](solutions/employee/Manager.java)
 
 - What constructors are appropriate?
-
 > Because we are inheriting from Employee, Java forces us to write a constructor that calls `super(...)`, so we have to write at least one. In this case, it makes sense to have a constructor that takes the name, salary and hire date, but you could also argue there should be one that just takes the name and salary and sets the hire date to the current day. It depends on context of how the class will be used whether you want the former, the latter, or both constructors.
 
 - Is it appropriate to have a getter for the hire date? What about a setter?
-
 > One can assume that if the hire date is stored it is information that will be needed at some point, so a getter is necessary. However, unlike the name or salary, it is unlikely that the hire date will be updated, so a setter would only serve to break that reasonable assumption about the class.
 
 Override the `toString()` method inherited from `Object` in both classes.
-
-> See [`Manager.java`](./solutions/employee/Manager.java) and [`Employee.java`](./solutions/employee/Employee.java)
+> See [`Manager.java`](solutions/employee/Manager.java) and [`Employee.java`](solutions/employee/Employee.java)
 
 - What should the result of `toString()` contain?
-
 > The [documentation](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--) for the `toString()` method states that it should return a string that "textually represents" the object. In this case, it should contain the name, salary and hire date (in the case of `Manager`), but also the runtime class of the object.
 
 - Does the method in `Manager` call the one in `Employee`?
-
 > In order to satisfy the above requirement and not introduce unnecessary repetition, the superclass method must be called.
 
 ## D. Equals
 This exercise continues on from the work in Exercise C.
 
 - What does the `==` operator do when comparing objects?
-
 > Compares the objects references. I.e., the result will be true if and only if the two objects being compared are the same instance. Only use this when you want to compare by reference.
 
 - Where have you seen this sort of behaviour before in other languages? How is the underlying data checked for equality in that scenario?
-
 > This is similar to strings in C. We don’t use `==` with strings in C as this compares the pointers to the start of each string. To compare the contents of the string for equality, we’d use `strcmp()`.
 
 - How can we compare two objects for equality?
-
 > Using the `equals()` method, a method that comes from the `Object` class and is therefore inherited by every other class with the ability to be overridden.
 
 - What does it mean for objects to be considered equal?
-
 > There’s a formal definition for what the `equals()` method needs to do as defined by the documentation. As long as the implementation adheres to those properties, then you could define equality for your set of objects in any way that makes sense for your purpose. However, the most common way is to compare all of the fields of the object to see if they are equal, i.e., comparing the contents of the objects in a similar way to how strings are compared in C. That is `Employee`s will be considered equal if their fields are equal.
 
 - What is the relationship between a super type and a sub type in terms of equality? Can a concrete instance of an `Employee` be equal to an instance of a `Manager`
-
 > Although a subtype can also be treated as the supertype, they are inherently unequal. A subtype is a more specific version and hence can’t be treated as an equal to a concrete instance of the supertype. In this example, a `Manager` is a more specific version of an `Employee` with additional fields. However, even if the `Manager` did not have additional fields, there should be something that the `Manager` does to differentiate it from the `Employee`. That is a `Manager` and an `Employee` with the same data in their fields, should still be considered unequal.
 
 Override the `equals()` method inherited from `Object` in both classes.
 - What key things should the `equals()` method do?
-
 > Typical Structure of the equals method will include:
 > - Check that the passed in object is not null.
 >   - `if (object == null) return false`
@@ -112,21 +89,17 @@ Override the `equals()` method inherited from `Object` in both classes.
 > - Once confirmed that the passed in object is of the same type (so it can be cast safely), cast the passed in object to the same type as the current class so the fields of that class can be compared between the calling object and the passed in object.
 
 - How should the type of the input object be checked? How should it be compared to the type of the calling object?
-
 > **Do not use** `instanceof` to check the types of objects in the `equals()` method.
 >
 > Get the concrete type of any object by calling its `getClass()` method. This will give you the runtime type of the object, regardless of what the type is of the variable that it is stored in. Use `getClass()` on the calling object (`this`) and on the passed in object and compare the results for equality to see if both objects have the same type.
 
 - How can the method in `Manager` utilise code in `Employee` to avoid repetition?
-
 > In the `equals()` method for the `Manager` we can call `super.equals(object)` to check if the Employee parts of the passed in `Object` are equal to that of the calling `Manager` so we don’t have to rewrite all of the field comparisons in the `Manager` class. The subclass may also not have access to the fields in the super class, and there may not be getters to retrieve them, so you’d have to call `super.equals(object)`. We don’t want to have to expose stuff to our subclass if we don’t have to, so being able to call the `equals` method defined in the superclass gives us the best design and allows for code reuse.
 >
 > Note that `super.equals()` still has to check that the passed in object matches the type of the calling object, but the calling object is now a `Manager` and the code that is being run is the equals method that was written in the `Employee` class. Despite being written in the `Employee` class, the code `this.getClass()` actually gives us a Manager because this is referring to the calling object, not the class. So, `this.getClass()` gets us the runtime type of the calling object which in this case is a Manager
 
 ## E. Access Modifiers & Packages
-
-In the `src/access` package, answer the questions marked `TODO`.
-
-> See code [here](./solutions/access/)
+In the [src/access](src/access/) package, answer the questions marked `TODO`.
+> See code [here](solutions/access/)
 >
-> ![](./image.png)
+> ![](solutions/image.png)
