@@ -7,7 +7,10 @@ Your tutor will run a short introduction/icebreaker activity.
 - In groups, your tutor is going to give you a design problem to think about and discuss.
 - Come back together, and reflect with your tutor on how you came up with those answers.
 > Any groups is fine for this activity
-> Design Problem: UNSW has decided that they want to create their own light rail, which takes students from upper campus to lower campus. Design a solution for this - how will it work? What will need to be changed about the campus layout for it to work?
+
+> Option 1: Suggest something to design (anything is fine, can just be a noun) and ask each student to come up with an additional requirement/restriction. Ask students to discuss potential solutions to the requirements. Discuss whether their attempts fulfill all the requirements, the shortcomings of their design, if they have introduced problems or contradictions in their design, etc.
+
+> Option 2: UNSW has decided that they want to create their own light rail, which takes students from upper campus to lower campus. Design a solution for this - how will it work? What will need to be changed about the campus layout for it to work?
 
 ## C. Hello Java and Git Revision
 Your tutor is going to import the `tute01` code into VSCode and will complete the Hello World program. Things to note:
