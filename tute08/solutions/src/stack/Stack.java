@@ -39,17 +39,14 @@ public class Stack<E> implements Iterable<E> {
      * Returns the top element of the stack, without removing it.
      */
     public E peek() {
-        E back = elements.get(elements.size() - 1);
-        return back;
+        return elements.get(elements.size() - 1);
     }
 
     /**
      * Returns an iterator to the internal data structure of the stack.
      */
     public Iterator<E> iterator() {
-        List<E> copy = new ArrayList<E>(elements);
-        Collections.reverse(copy);
-        return copy.iterator();
+        return new StackIterator<>(elements);
     }
 
     /**
@@ -77,17 +74,17 @@ public class Stack<E> implements Iterable<E> {
     }
 
     public static void prettyPrint(Stack<?> stack) {
-        System.out.print("[");
-        if (stack.size() == 0) {
-            System.out.println("]");
+        StringBuilder sb = new StringBuilder();
+
+        sb.append('[');
+
+        for (Object x : stack) {
+            sb.append(x).append(" ");
         }
 
-        Iterator<?> iter = stack.iterator();
-
-        for (int i = 0; i < stack.size() - 1; i++) {
-            System.out.print(iter.next() + " ");
-        }
-        System.out.println(iter.next() + "]");
+        sb.deleteCharAt(sb.length() - 1);
+        sb.append(']');
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
