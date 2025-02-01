@@ -24,34 +24,25 @@ public class Restaurant {
 
     public double cost(List<Meal> order, String payee) {
         switch (chargingStrategy) {
-            case "standard":
-                return order.stream().mapToDouble(meal -> meal.getCost()).sum();
-            case "holiday":
-                return order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
-            case "happyHour":
+            case "standard" -> return order.stream().mapToDouble(meal -> meal.getCost()).sum();
+            case "holiday" -> return order.stream().mapToDouble(meal -> meal.getCost() * 1.15).sum();
+            case "happyHour" -> {
                 if (members.contains(payee)) {
                     return order.stream().mapToDouble(meal -> meal.getCost() * 0.6).sum();
                 } else {
                     return order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
                 }
-            default:
-                return 0;
+            }
+            default -> return 0;
         }
     }
 
     public void displayMenu() {
-        double modifier = 0;
-        switch (chargingStrategy) {
-            case "standard":
-                modifier = 1;
-                break;
-            case "holiday":
-                modifier = 1.15;
-                break;
-            case "happyHour":
-                modifier = 0.7;
-                break;
-        }
+        double modifier = switch (chargingStrategy) {
+            case "standard" -> 1,
+            case "holiday" -> 1.15,
+            case "happyHour" -> 0.7
+        };
 
         for (Meal meal : menu) {
             System.out.println(meal.getName() + " - " + meal.getCost() * modifier);
