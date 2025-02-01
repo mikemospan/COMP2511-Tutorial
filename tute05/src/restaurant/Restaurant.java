@@ -11,7 +11,7 @@ public class Restaurant {
     private String name;
     private List<Meal> menu = new ArrayList<Meal>();
     private List<String> members = new ArrayList<String>();
-
+    
     public Restaurant(String name) {
         this.name = name;
         JSONArray menuJSON = JSONHelper.readInData("src/restaurant/prices.json");
@@ -34,12 +34,6 @@ public class Restaurant {
                 } else {
                     return order.stream().mapToDouble(meal -> meal.getCost() * 0.7).sum();
                 }
-            case "discount":
-                if (members.contains(payee)) {
-                    return order.stream().mapToDouble(meal -> meal.getCost() * 0.85).sum();
-                } else {
-                    return order.stream().mapToDouble(meal -> meal.getCost()).sum();
-                }
             default:
                 return 0;
         }
@@ -56,9 +50,6 @@ public class Restaurant {
                 break;
             case "happyHour":
                 modifier = 0.7;
-                break;
-            case "discount":
-                modifier = 1;
                 break;
         }
 
