@@ -56,23 +56,42 @@ for (String string : strings2) {
 
 ## C. Design by Contract
 1. What is Design by Contract?
-2. Discuss briefly as a class how you have used Design by Contract already in previous courses.
-> 1531 API & Frontend/backend, 1511/2521 using ADTs
+> Providing an interface for others to use with clear preconditions, postconditions and invariants which, when adhered to, guarantees correct and expected behaviour
 
-3. Discuss how Design By Contract was applied in the Blackout assignment.
+2. Discuss how Design By Contract was applied in the Blackout assignment.
 > Key things to note:
 >
 > - Interface functions have been specified in `Blackout`. As long as you match that interface, you can implement the function however you choose.
 >
 > - You have been told you don't have to account for invalid Satellite/Device IDs, and that no 2 devices would ever occupy the same position. These are examples of preconditions which you don't have to account for (the behaviour of the ADT is undefined in these cases).
 
-4. In the `Calculator` code, specify a contract for each of the functions. Hint: for the trig functions, look at the interface of the `Math` functions in the Java documentation. Key edge cases to consider:
-    - Dividing by zero
-    - `tan(Math.PI / 2)`
-> See [`Calculator.java`](solutions/src/calculator/Calculator.java)
+3. Discuss what preconditions, postconditions and invariants are.
+> Preconditions - conditions on the inputs which guarantee postconditions will be true
+>
+> Postconditions - guarantees from the actual software on what you can expect from a function (given preconditions)
+>
+> Invariants - guarantees from the actual software that are always maintained before and after a function call
+> (they may not always hold *during* the function call, but the user shouldn't need to worry about that)
 
-5. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
-6. We will now make our code more defensive by throwing an exception on the two edge cases listed above. Define your own custom exception called `CalculatorException`, and change the code so that these edge cases cause this exception to be thrown. Modify your contract accordingly. If you have time, add tests for these conditions as well.
+4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have
+    - *strengthened* my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)
+    - *weakened* my postconditions, as `Penguin` has an outcome which `Bird` doesn't
+Discuss why strengthening preconditions and weakening postconditions violates good inheritance design
+
+> - Strengthening preconditions violates LSP, as if I replaced a `Bird` with a `Penguin`, any calls to fly with an input of 5 metres will no longer be valid
+> - Similarly, weakning postconditions violates LSP as replacing a `Bird` with a `Penguin` means that the object is no longer considered flying, which can break further code which relies on it now flying
+
+5. In the `people` package, there are a few classes which represent the people at a university
+    - Briefly discuss the preconditions and postconditions of the constructors, getters and setters in `Person.java`
+    - Fill in the preconditions and postconditions for `setSalary` in `Person.java`
+    - Discuss the validity of the subclasses of `Person`, and why they are/aren't valid subclasses
+    - Fix any issues you identified before
+> See [`people`](src/people/Person.java)
+
+6. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
+> No, as the point is that inputs which don't meet the preconditions are not accounted for
+
+7. If we were to try make our code more defensive, we could throw an exception on any inputs not satisfying the preconditions. Discuss whether these exceptions are now considered defined behaviour or not, and whether you now need to account for it in your postconditions.
 > When you update your postconditions, include the possible exception cases Note that exception cases are still cases for which the preconditions aren't met - this is the subject of a bit of debate, because technically exceptional behaviour is 'accounted for' and defined which means the preconditions (user of the ADT) don't have to worry about it, but also looking at it from a formal 'proving-things about programs' perspective, an input which causes an exception to be raised doesn't map to an output, which means it's not formally 'defined' behaviour. So what this essentially means is that an input that doesn't meet the 'correct' preconditions will cause an exception to be raised (in a defensive programming style) but the behaviour of the ADT is still defined.
 >
-> From a library-writing perspective this sort of 'contract except I tell you where you went wrong you if you mess up' style of design is useful for 2 reasons, one is that it prevents weird stuff from happening that breaks everything, and the second is that it helps users of the ADT debug their code. Just like how when you enter jibberish on a date field in a web form it says 'error: invalid date' etc etc instead of a 500 Internal Server Error, or when you divide by 0 in Python or Java you get a ZeroDivisionError, rather than some message from the OS.
+> From a library-writing perspective this sort of 'contract except I tell you where you went wrong you if you mess up' style of design is useful for 2 reasons. One is that it prevents weird stuff from happening that breaks everything, and the second is that it helps users of the ADT debug their code. Just like how when you enter jibberish on a date field in a web form it says 'error: invalid date' etc etc instead of a 500 Internal Server Error, or when you divide by 0 in Python or Java you get a ZeroDivisionError, rather than some message from the OS.
