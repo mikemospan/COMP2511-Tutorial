@@ -37,10 +37,16 @@ for (String string : strings2) {
 
 ## C. Design by Contract
 1. What is Design by Contract?
-2. Discuss briefly as a class how you have used Design by Contract already in previous courses.
-3. Discuss how Design By Contract was applied in the Blackout assignment.
-4. In the `Calculator` code, specify a contract for each of the functions. Hint: for the trig functions, look at the interface of the `Math` functions in the Java documentation. Key edge cases to consider:
-    - Dividing by zero
-    - `tan(Math.PI / 2)`
-5. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
-6. We will now make our code more defensive by throwing an exception on the two edge cases listed above. Define your own custom exception called `CalculatorException`, and change the code so that these edge cases cause this exception to be thrown. Modify your contract accordingly. If you have time, add tests for these conditions as well.
+2. Discuss how Design By Contract was applied in the Blackout assignment.
+3. Discuss what preconditions, postconditions and invariants are.
+4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have
+    - *strengthened* my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)
+    - *weakened* my postconditions, as `Penguin` has an outcome which `Bird` doesn't
+Discuss why strengthening preconditions and weakening postconditions violates good inheritance design
+5. In the `people` package, there are a few classes which represent the people at a university
+    - Briefly discuss the preconditions and postconditions of the constructors, getters and setters in `Person.java`
+    - Fill in the preconditions and postconditions for `setSalary` in `Person.java`
+    - Discuss the validity of the subclasses of `Person`, and why they are/aren't valid subclasses
+    - Fix any issues you identified before
+6. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
+7. If we were to try make our code more defensive, we could throw an exception on any inputs not satisfying the preconditions. Discuss whether these exceptions are now considered defined behaviour or not, and whether you now need to account for it in your postconditions.
