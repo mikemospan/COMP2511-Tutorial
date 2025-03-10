@@ -60,7 +60,7 @@ c)
 public class MathLibrary {
     List<Book> books;
 
-    int sumTitles {
+    int sumTitles() {
         int total = 0
         for (Book b : books) {
             total += b.title.titleLength;

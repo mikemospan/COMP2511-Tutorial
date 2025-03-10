@@ -37,7 +37,7 @@ for (String string : strings2) {
 
 ## C. Design by Contract
 1. What is Design by Contract?
-2. Discuss how Design By Contract was applied in the Blackout assignment.
+2. Discuss how Design By Contract was applied in assignment-i.
 3. Discuss what preconditions, postconditions and invariants are.
 4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have
     - *strengthened* my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)

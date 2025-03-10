@@ -18,7 +18,7 @@ public static Integer sumStack(Stack<? extends Integer> stack);
 ```
 
 5. What does the `<? extends Type>` and `<? super Type>` mean?
-6. How could we change our class definition to restrict the parameterisation?
+6. How could we change our class definition to restrict the parametrisation?
 
 ```java
 public static void prettyPrint(Stack<?> stack);
@@ -34,7 +34,8 @@ Having pushed the words "hello", "how", "are", "you", "today" on, the following 
 8. We need to go through the stack and print out each element with a space, except for the last one (which doesn't have a space). There are a couple of ways to do this, but create an `Iterator` and use the `.next()` method to traverse the stack.
 
 ## B. Singleton Pattern & Concurrency
-Consider the Bank Account class from Lab 04. What if multiple people try to access the bank account at the same time? Inside `src/unsw/heist` are three classes:
+
+Consider the Bank Account class from Lab 04. What if multiple people try to access the bank account at the same time? Inside `src/heist` are three classes:
 
 - `BankAccount`, from Lab 04.
 - `BankAccountAccessor`. Objects of this type are an instance of an access to a bank account to withdraw money a given number of times by given amounts.
