@@ -1,5 +1,9 @@
 package thrones;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Game {
     private List<Character> characters = new ArrayList<Character>();
 
