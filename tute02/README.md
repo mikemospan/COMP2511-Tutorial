@@ -1,15 +1,19 @@
 # Tutorial 02
+
 ## A. Code Review
+
 Your tutor will provide you a link or open up the `src/shapes`, and use the `Shape` and `Rectangle` classes.
 
 In groups, analyse the classes to answer the following questions:
 
 ### `super` vs `this`
+
 1. What is the difference between `super` and `this`?
 2. What about `super(...)` and `this(...)`?
 3. What will the `main` code in `Rectangle print and why?
 
 ### Abstract Classes vs Interfaces
+
 4. What is the purpose of using an abstract class in this code?
 5. What are some downsides of the use of the abstract class here?
 6. What is the difference between an abstract class and an interface? Why would you use one or the other?
@@ -21,6 +25,7 @@ In groups, analyse the classes to answer the following questions:
 9. What is the output of running `Shape.getCount()` in `main`?
 
 ## B. JavaDoc & Commenting
+
 Within the `src` directory, you have been provided with an `Employee` class, where an employee has a name and salary.
 
 The class has been documented with [JavaDoc](https://www.oracle.com/au/technical-resources/articles/java/javadoc-tool.html).
@@ -32,6 +37,7 @@ In this course we are not going to require that you write JavaDoc, except when s
 - Discuss as a class whether code should always have comments / JavaDoc
 
 ## C. Basic Inheritance & Polymorphism
+
 This exercise continues on from the `Employee` class in Exercise B.
 
 Create a `Manager` class that is a subclass of `Employee` and has a field for the manager's hire date.
@@ -43,6 +49,7 @@ Use VSCode to create the getters and setters.
 - Why might adding certain getters and setters be bad design?
 
 ## D. toString and Equals
+
 This exercise continues on from the work in Exercise C.
 
 Override the `toString()` method inherited from `Object` in both classes.
@@ -59,9 +66,11 @@ We will now look at equality checks in Java.
 - What is the relationship between a super type and a sub type in terms of equality? Can a concrete instance of an `Employee` be equal to an instance of a `Manager`
 
 Override the `equals()` method inherited from `Object` in both classes.
+
 - What key things should the `equals()` method do?
 - How should the type of the input object be checked? How should it be compared to the type of the calling object?
 - How can the method in `Manager` utilise code in `Employee` to avoid repetition?
 
 ## E. Access Modifiers & Packages
+
 In the [src/access](src/access/) package, answer the questions marked `TODO`.

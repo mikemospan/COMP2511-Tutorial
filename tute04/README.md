@@ -1,6 +1,9 @@
 # Tutorial 04
+
 ## A. Design Principles
+
 ### Part 1: Law of Demeter
+
 In the `unsw.training` package there is some skeleton code for a training system.
 
 - Every employee must attend a whole day training seminar run by a qualified trainer
@@ -14,25 +17,28 @@ In the `TrainingSystem` class there is a method to book a seminar for an employe
 4. More generally, are getters essentially a means of violating the principle of least knowledge? Does this make using getters bad design?
 
 ### Part 2: Liskov Substitution Principle
+
 Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution Principle?
 
 ## B. Strategy Pattern
+
 Inside `src/restaurant` is a solution for a restaurant payment system with the following requirements:
 
 - The restaurant has a menu, stored in a JSON file. Each meal on the menu has a name and price
 - The system displays all of the standard meal names and their prices to the user so they can make their order
 - The user can enter their order as a series of meals, and the system returns their cost
 - The prices on meals often vary in different circumstances. The restaurant has three different price settings (so far):
-    - Standard - normal rates
-    - Holiday - 15% surcharge on all items for all customers
-    - Happy Hour - where registered members get a 40% discount, while standard customers get 30%
+  - Standard - normal rates
+  - Holiday - 15% surcharge on all items for all customers
+  - Happy Hour - where registered members get a 40% discount, while standard customers get 30%
 - The prices displayed on the menu are the ones for standard customers in all settings
 
 Currently, the code uses switch statements to handle each of the different four cases.
+
 - How does the code violate the open/closed principle?
 - How does this make the code brittle?
 
- i) Refactor the code to use the Strategy Pattern to handle the three settings.
+i) Refactor the code to use the Strategy Pattern to handle the three settings.
 
 Here is the strategy interface to get you started:
 
@@ -50,10 +56,12 @@ public interface ChargingStrategy {
 }
 ```
 
- ii) Extend the system to add the following pricing strategy:
-  - Prize Draw: A special promotion where every *100th* customer (since the start of the promotion) gets their meal for free!
+ii) Extend the system to add the following pricing strategy:
+
+- Prize Draw: A special promotion where every _100th_ customer (since the start of the promotion) gets their meal for free!
 
 ## C. Composite Pattern
+
 Inside `src/calculator`, use the Composite Pattern to write a simple calculator that evaluates an expression. Your calculator should be able to:
 
 - Add two expressions
@@ -77,5 +85,6 @@ Inside `src/thrones`, there is some code to model a simple chess-like game. In t
 We won't concern ourselves with the logic of the game in this exercise per se, but instead the creation of objects.
 
 We want to refactor the code so that when the characters are created, they are put in a random location in a grid of length 5.
+
 1. How does the Factory Pattern (AKA Factory Method) allow us to abstract construction of objects, and how will it improve our design with this new requirement?
 2. Use the Factory Pattern to create a series of object factories for each of the character types, and change the `main` method of `Game.java` to use these factories.
