@@ -4,14 +4,33 @@ Your tutor will provide you a link or open up the `src/shapes`, and use the `Sha
 
 In groups, analyse the classes to answer the following questions:
 
+### `super` vs `this`
 1. What is the difference between `super` and `this`?
 2. What about `super(...)` and `this(...)`?
-3. What are static fields and methods?
-> `super`: The instance of the super class
+3. What will the `main` code in `Rectangle print and why?
+> 1. `super`: The instance of the super class
 > `this`: The instance of this class (like self in python)
-> `super(...)` Runs the respective method in the super class
+> 2. `super(...)` Runs the respective method in the super class
 > `this(...)` Runs the respective method in this class with the given parameters (used for method overloading)
+> 3. It will go into the `Rectangle` constructor with 3 arguments, which will then call the `Rectangle` constructor with 1 argument, which finally calls the `Shape` constructor
 
+### Abstract Classes vs Interfaces
+4. What is the purpose of using an abstract class in this code?
+5. What are some downsides of the use of the abstract class here?
+6. What is the difference between an abstract class and an interface? Why would you use one or the other?
+> 4. It allows the user to enforce the inclusion of a method `getArea` without having to define a default implementation, forcing subclasses to provide an implementation
+> 5. We can run into the diamond inheritance problem, which means that Java forces us to only be able to inherit from one class (including abstract classes)
+> 6. An interface cannot provide *any* implementation or fields - only methods which need to exist in classes which implement the interface. On the other hand, abstract classes can provide some implementations of methods and have fields, with the *option* to not provide implementation of some (or all) methods.
+> You use an interface to allow multiple inheritance of method names (but not implementation), and you use abstract classes wherever you want to have an inheritance structure where some implementation is provided in a super class
+
+### `static` keyword
+
+7. Can you override a static method?
+8. What is the output of running `r2.getArea()` in `main`?
+9. What is the output of running `Shape.getCount()` in `main`?
+> 7. No - the method is attached to the class, not the instance.
+> 8. It will print 400, making use of the `Shape` constructor as it always will use the runtime type of the object, not the pointer type's method
+> 9. It will print 2 as each constructor call updates the static `count`, which is shared across instances. Hence, the first one updates 0 to 1, and the second updates 1 to 2. This is in contrast to non-static variables which have different values across instances - in that case, the count would be 1 for the two separate instances.
 
 ## B. JavaDoc & Commenting
 Within the `src` directory, you have been provided with an `Employee` class, where an employee has a name and salary.
@@ -52,6 +71,7 @@ Use VSCode to create the getters and setters.
 > Getters and setters can break encapsulation, especially when they are used to get and set inappropriate fields. It should be emphasised to students that they should be created only when strictly needed.
 
 ## D. toString and Equals
+This exercise continues on from the work in Exercise C.
 
 Override the `toString()` method inherited from `Object` in both classes.
 > See [`Manager.java`](solutions/employee/Manager.java) and [`Employee.java`](solutions/employee/Employee.java)
@@ -62,7 +82,7 @@ Override the `toString()` method inherited from `Object` in both classes.
 - Does the method in `Manager` call the one in `Employee`?
 > In order to satisfy the above requirement and not introduce unnecessary repetition, the superclass method must be called.
 
-This exercise continues on from the work in Exercise C.
+We will now look at equality checks in Java.
 
 - What does the `==` operator do when comparing objects?
 > Compares the objects references. I.e., the result will be true if and only if the two objects being compared are the same instance. Only use this when you want to compare by reference.
@@ -101,23 +121,7 @@ Override the `equals()` method inherited from `Object` in both classes.
 >
 > Note that `super.equals()` still has to check that the passed in object matches the type of the calling object, but the calling object is now a `Manager` and the code that is being run is the equals method that was written in the `Employee` class. Despite being written in the `Employee` class, the code `this.getClass()` actually gives us a Manager because this is referring to the calling object, not the class. So, `this.getClass()` gets us the runtime type of the calling object which in this case is a Manager
 
-## E. Abstract classes and Interfaces
-
-Look at the code in the [src/dogs](src/dogs/) package, including the `main` method in `Chihuahua.java`.
-- What is the purpose of using an interface in this code?
-> The dog interface is used to enforcing that subtypes of dog always implement the bark functionality. It means we can rely on all dogs having that method (e.g. how it is used in main).
-
-- What are some downsides of the use of the interface here?
-> Repeated code present between dogs subtypes.
-
-- What is the difference between an abstract class and an interface?
-> Interfaces can't store state. Abstract classes can, and can also have common methods as well. However, you can only extend from one abstract class at a time, whereas you can implement unlimited interfaces.
-
-If you have time, refactor the code to improve its quality, perhaps using an abstract class.
-
-
-
-## F. Access Modifiers & Packages
+## E. Access Modifiers & Packages
 In the [src/access](src/access/) package, answer the questions marked `TODO`.
 > See code [here](solutions/access/)
 >

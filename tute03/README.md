@@ -1,72 +1,19 @@
 # Tutorial 03
-## A. Code Review & Questions
-In your project groups, answer the following questions.
-
-1. Can you override a static method?
-
-2. What is the output by executing `A.f()` in the following?
-
-```java
-    public class A {
-        public static void f() {
-            C c = new C();
-            c.speak();
-            B b = c;
-            b.speak();
-            b = new B();
-            b.speak();
-            c.speak();
-        }
-    }
-
-    public class B {
-        public void speak() {
-            System.out.println("moo");
-        }
-    }
-
-    public class C extends B {
-        public void speak() {
-            System.out.println("quack");
-        }
-    }
-```
-
-3. What is the output by executing `A.f()` in the following?
-
-```java
-    public class A {
-        public static void f() {
-            B b1 = new B();
-            B b2 = new B();
-            b1.incX();
-            b2.incY();
-            System.out.println(b1.getX() + " " + b1.getY());
-            System.out.println(b2.getX() + " " + b2.getY());
-        }
-    }
-
-    public class B {
-        private int x;
-        private static int y;
-
-        public int getX() {
-            return x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public void incX() {
-            x++;
-        }
-
-        public void incY() {
-            y++;
-        }
-    }
-```
+## A. Design by Contract
+1. What is Design by Contract?
+2. Discuss how Design By Contract was applied in assignment-i.
+3. Discuss what preconditions, postconditions and invariants are.
+4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have
+    - *strengthened* my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)
+    - *weakened* my postconditions, as `Penguin` has an outcome which `Bird` doesn't
+Discuss why strengthening preconditions and weakening postconditions violates good inheritance design
+5. In the `people` package, there are a few classes which represent the people at a university
+    - Briefly discuss the preconditions and postconditions of the constructors, getters and setters in `Person.java`
+    - Fill in the preconditions and postconditions for `setSalary` in `Person.java`
+    - Discuss the validity of the subclasses of `Person`, and why they are/aren't valid subclasses
+    - Fix any issues you identified before
+6. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
+7. If we were to try make our code more defensive, we could throw an exception on any inputs not satisfying the preconditions. Discuss whether these exceptions are now considered defined behaviour or not, and whether you now need to account for it in your postconditions.
 
 ## B. Domain Modelling
 In this problem, we are going to create an Object-Oriented domain model for a system with the following requirements.

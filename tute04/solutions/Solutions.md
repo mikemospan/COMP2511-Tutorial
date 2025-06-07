@@ -32,66 +32,69 @@ In the `TrainingSystem` class there is a method to book a seminar for an employe
 Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution Principle?
 > This class violates the Liskov Substitution Principle. Specifically a `Seminar` is defined as having a list of attendees, but `OnlineSeminar` does not require this. A client interacting with a `Seminar` would expect the seminar to be booked like any other. This is an example of classes having an IS-A relationship informally, but not a valid inheritance relationship when taking into account what the classes actually do and represent.
 
-## B. Streams and Lambdas
-1. Inside `src/stream/App.java`, rewrite the following code using the `.forEach()` method and a lambda:
+## B. Strategy Pattern
+Inside `src/restaurant` is a solution for a restaurant payment system with the following requirements:
+
+- The restaurant has a menu, stored in a JSON file. Each meal on the menu has a name and price
+- The system displays all of the standard meal names and their prices to the user so they can make their order
+- The user can enter their order as a series of meals, and the system returns their cost
+- The prices on meals often vary in different circumstances. The restaurant has three different price settings (so far):
+    - Standard - normal rates
+    - Holiday - 15% surcharge on all items for all customers
+    - Happy Hour - where registered members get a 40% discount, while standard customers get 30%
+- The prices displayed on the menu are the ones for standard customers in all settings
+
+Currently, the code uses switch statements to handle each of the different four cases.
+- How does the code violate the open/closed principle?
+- How does this make the code brittle?
+
+ i) Refactor the code to use the Strategy Pattern to handle the three settings.
+
+Here is the strategy interface to get you started:
+
 ```java
-List<String> strings = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
-for (String string : strings) {
-    System.out.println(string);
+public interface ChargingStrategy {
+    /**
+     * The cost of a meal.
+     */
+    public double cost(List<Meal> order, boolean payeeIsMember);
+
+    /**
+     * Modifying factor of charges for standard customers.
+     */
+    public double standardChargeModifier();
 }
 ```
-2. In the above example, discuss two different ways to write lambda expressions.
-> One-liner or with curly braces
 
-3. What is a stream? Rewrite the following code to use a stream and the `map` function.
-```java
-List<String> strings2 = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
-List<Integer> ints = new ArrayList<Integer>();
-for (String string : strings2) {
-    ints.add(Integer.parseInt(string));
-}
-```
-4. Modify your answer to (3) to use a scope operator instead of a normal lambda.
-> See [`App.java`](solutions/src/stream/App.java)
+ ii) Extend the system to add the following pricing strategy:
+  - Prize Draw: A special promotion where every *100th* customer (since the start of the promotion) gets their meal for free!
+> See [solutions/src/restaurant](solutions/src/restaurant/)
 
-## C. Design by Contract
-1. What is Design by Contract?
-> Providing an interface for others to use with clear preconditions, postconditions and invariants which, when adhered to, guarantees correct and expected behaviour
+## C. Composite Pattern
+Inside `src/calculator`, use the Composite Pattern to write a simple calculator that evaluates an expression. Your calculator should be able to:
 
-2. Discuss how Design By Contract was applied in the Blackout assignment.
-> Key things to note:
->
-> - Interface functions have been specified in `Blackout`. As long as you match that interface, you can implement the function however you choose.
->
-> - You have been told you don't have to account for invalid Satellite/Device IDs, and that no 2 devices would ever occupy the same position. These are examples of preconditions which you don't have to account for (the behaviour of the ADT is undefined in these cases).
+- Add two expressions
+- Subtract two expressions
+- Multiply two expressions
+- Divide two expressions
 
-3. Discuss what preconditions, postconditions and invariants are.
-> Preconditions - conditions on the inputs which guarantee postconditions will be true
->
-> Postconditions - guarantees from the actual software on what you can expect from a function (given preconditions)
->
-> Invariants - guarantees from the actual software that are always maintained before and after a function call
-> (they may not always hold *during* the function call, but the user shouldn't need to worry about that)
+There should be a `Calculator` class as well which can have an expression passed in, and calculate that expression.
 
-4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have
-    - *strengthened* my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)
-    - *weakened* my postconditions, as `Penguin` has an outcome which `Bird` doesn't
-Discuss why strengthening preconditions and weakening postconditions violates good inheritance design
+Design a solution, create stubs, write failing unit tests, then implement the functions.
+> See [solutions/src/calculator](solutions/src/calculator/)
 
-> - Strengthening preconditions violates LSP, as if I replaced a `Bird` with a `Penguin`, any calls to fly with an input of 5 metres will no longer be valid
-> - Similarly, weakning postconditions violates LSP as replacing a `Bird` with a `Penguin` means that the object is no longer considered flying, which can break further code which relies on it now flying
+## D. Factory Pattern
 
-5. In the `people` package, there are a few classes which represent the people at a university
-    - Briefly discuss the preconditions and postconditions of the constructors, getters and setters in `Person.java`
-    - Fill in the preconditions and postconditions for `setSalary` in `Person.java`
-    - Discuss the validity of the subclasses of `Person`, and why they are/aren't valid subclasses
-    - Fix any issues you identified before
-> See [`people`](src/people/Person.java)
+Inside `src/thrones`, there is some code to model a simple chess-like game. In this game different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance. There are four types of characters:
 
-6. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
-> No, as the point is that inputs which don't meet the preconditions are not accounted for
+- A king can move one square in any direction (including diagonally), and always causes 8 points of damage when attacking.
+- A knight can move like a knight in chess (in an L shape), and has a 1 in 2 chance of inflicting 10 points of damage when attacking.
+- A queen can move to any square in the same column, row or diagonal as she is currently on, and has a 1 in 3 chance of inflicting 12 points of damage and a 2 out of 3 chance of inflicting 6 points of damage.
+- A dragon can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
 
-7. If we were to try make our code more defensive, we could throw an exception on any inputs not satisfying the preconditions. Discuss whether these exceptions are now considered defined behaviour or not, and whether you now need to account for it in your postconditions.
-> When you update your postconditions, include the possible exception cases Note that exception cases are still cases for which the preconditions aren't met - this is the subject of a bit of debate, because technically exceptional behaviour is 'accounted for' and defined which means the preconditions (user of the ADT) don't have to worry about it, but also looking at it from a formal 'proving-things about programs' perspective, an input which causes an exception to be raised doesn't map to an output, which means it's not formally 'defined' behaviour. So what this essentially means is that an input that doesn't meet the 'correct' preconditions will cause an exception to be raised (in a defensive programming style) but the behaviour of the ADT is still defined.
->
-> From a library-writing perspective this sort of 'contract except I tell you where you went wrong you if you mess up' style of design is useful for 2 reasons. One is that it prevents weird stuff from happening that breaks everything, and the second is that it helps users of the ADT debug their code. Just like how when you enter jibberish on a date field in a web form it says 'error: invalid date' etc etc instead of a 500 Internal Server Error, or when you divide by 0 in Python or Java you get a ZeroDivisionError, rather than some message from the OS.
+We won't concern ourselves with the logic of the game in this exercise per se, but instead the creation of objects.
+
+We want to refactor the code so that when the characters are created, they are put in a random location in a grid of length 5.
+1. How does the Factory Pattern (AKA Factory Method) allow us to abstract construction of objects, and how will it improve our design with this new requirement?
+2. Use the Factory Pattern to create a series of object factories for each of the character types, and change the `main` method of `Game.java` to use these factories.
+> See [solutions/src/thrones](solutions/src/thrones/)

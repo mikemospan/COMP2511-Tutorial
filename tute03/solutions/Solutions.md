@@ -1,87 +1,44 @@
 # Tutorial 03
-## A. Code Review & Questions
-In your project groups, answer the following questions.
+## A. Design by Contract
+1. What is Design by Contract?
+> Providing an interface for others to use with clear preconditions, postconditions and invariants which, when adhered to, guarantees correct and expected behaviour
 
-1. Can you override a static method?
-> No - the method is attached to the class, not the instance.
-
-2. What is the output by executing `A.f()` in the following?
-
-```java
-    public class A {
-        public static void f() {
-            C c = new C();
-            c.speak();
-            B b = c;
-            b.speak();
-            b = new B();
-            b.speak();
-            c.speak();
-        }
-    }
-
-    public class B {
-        public void speak() {
-            System.out.println("moo");
-        }
-    }
-
-    public class C extends B {
-        public void speak() {
-            System.out.println("quack");
-        }
-    }
-```
-> The program will print out:
+2. Discuss how Design By Contract was applied in assignment-i.
+> Key things to note:
 >
-> ```
-> quack
-> quack
-> moo
-> quack
-> ```
-
-3. What is the output by executing `A.f()` in the following?
-
-```java
-    public class A {
-        public static void f() {
-            B b1 = new B();
-            B b2 = new B();
-            b1.incX();
-            b2.incY();
-            System.out.println(b1.getX() + " " + b1.getY());
-            System.out.println(b2.getX() + " " + b2.getY());
-        }
-    }
-
-    public class B {
-        private int x;
-        private static int y;
-
-        public int getX() {
-            return x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public void incX() {
-            x++;
-        }
-
-        public void incY() {
-            y++;
-        }
-    }
-```
-> The program will print out:
+> - Interface functions have been specified in `Blackout`. As long as you match that interface, you can implement the function however you choose.
 >
-> ```
-> 1 1
-> 0 1
-> ```
+> - You have been told you don't have to account for invalid Satellite/Device IDs, and that no 2 devices would ever occupy the same position. These are examples of preconditions which you don't have to account for (the behaviour of the ADT is undefined in these cases).
+
+3. Discuss what preconditions, postconditions and invariants are.
+> Preconditions - conditions on the inputs which guarantee postconditions will be true
+>
+> Postconditions - guarantees from the actual software on what you can expect from a function (given preconditions)
+>
+> Invariants - guarantees from the actual software that are always maintained before and after a function call
+> (they may not always hold *during* the function call, but the user shouldn't need to worry about that)
+
+4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have
+    - *strengthened* my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)
+    - *weakened* my postconditions, as `Penguin` has an outcome which `Bird` doesn't
+Discuss why strengthening preconditions and weakening postconditions violates good inheritance design
+> - Strengthening preconditions violates LSP, as if I replaced a `Bird` with a `Penguin`, any calls to fly with an input of 5 metres will no longer be valid
+> - Similarly, weakning postconditions violates LSP as replacing a `Bird` with a `Penguin` means that the object is no longer considered flying, which can break further code which relies on it now flying
+
+5. In the `people` package, there are a few classes which represent the people at a university
+    - Briefly discuss the preconditions and postconditions of the constructors, getters and setters in `Person.java`
+    - Fill in the preconditions and postconditions for `setSalary` in `Person.java`
+    - Discuss the validity of the subclasses of `Person`, and why they are/aren't valid subclasses
+    - Fix any issues you identified before
+> See [`people`](src/people/Person.java)
+
+6. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
+> No, as the point is that inputs which don't meet the preconditions are not accounted for
+
+7. If we were to try make our code more defensive, we could throw an exception on any inputs not satisfying the preconditions. Discuss whether these exceptions are now considered defined behaviour or not, and whether you now need to account for it in your postconditions.
+> When you update your postconditions, include the possible exception cases Note that exception cases are still cases for which the preconditions aren't met - this is the subject of a bit of debate, because technically exceptional behaviour is 'accounted for' and defined which means the preconditions (user of the ADT) don't have to worry about it, but also looking at it from a formal 'proving-things about programs' perspective, an input which causes an exception to be raised doesn't map to an output, which means it's not formally 'defined' behaviour. So what this essentially means is that an input that doesn't meet the 'correct' preconditions will cause an exception to be raised (in a defensive programming style) but the behaviour of the ADT is still defined.
+>
+> From a library-writing perspective this sort of 'contract except I tell you where you went wrong you if you mess up' style of design is useful for 2 reasons. One is that it prevents weird stuff from happening that breaks everything, and the second is that it helps users of the ADT debug their code. Just like how when you enter jibberish on a date field in a web form it says 'error: invalid date' etc etc instead of a 500 Internal Server Error, or when you divide by 0 in Python or Java you get a ZeroDivisionError, rather than some message from the OS.
 
 ## B. Domain Modelling
 In this problem, we are going to create an Object-Oriented domain model for a system with the following requirements.

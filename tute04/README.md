@@ -16,37 +16,66 @@ In the `TrainingSystem` class there is a method to book a seminar for an employe
 ### Part 2: Liskov Substitution Principle
 Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution Principle?
 
-## B. Streams and Lambdas
-1. Inside `src/stream/App.java`, rewrite the following code using the `.forEach()` method and a lambda:
-```java
-List<String> strings = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
-for (String string : strings) {
-    System.out.println(string);
-}
-```
-2. In the above example, discuss two different ways to write lambda expressions.
-3. What is a stream? Rewrite the following code to use a stream and the `map` function.
-```java
-List<String> strings2 = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
-List<Integer> ints = new ArrayList<Integer>();
-for (String string : strings2) {
-    ints.add(Integer.parseInt(string));
-}
-```
-4. Modify your answer to (3) to use a scope operator instead of a normal lambda.
+## B. Strategy Pattern
+Inside `src/restaurant` is a solution for a restaurant payment system with the following requirements:
 
-## C. Design by Contract
-1. What is Design by Contract?
-2. Discuss how Design By Contract was applied in assignment-i.
-3. Discuss what preconditions, postconditions and invariants are.
-4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have
-    - *strengthened* my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)
-    - *weakened* my postconditions, as `Penguin` has an outcome which `Bird` doesn't
-Discuss why strengthening preconditions and weakening postconditions violates good inheritance design
-5. In the `people` package, there are a few classes which represent the people at a university
-    - Briefly discuss the preconditions and postconditions of the constructors, getters and setters in `Person.java`
-    - Fill in the preconditions and postconditions for `setSalary` in `Person.java`
-    - Discuss the validity of the subclasses of `Person`, and why they are/aren't valid subclasses
-    - Fix any issues you identified before
-6. Will you need to write unit tests for something that doesn't meet the preconditions? Explain why.
-7. If we were to try make our code more defensive, we could throw an exception on any inputs not satisfying the preconditions. Discuss whether these exceptions are now considered defined behaviour or not, and whether you now need to account for it in your postconditions.
+- The restaurant has a menu, stored in a JSON file. Each meal on the menu has a name and price
+- The system displays all of the standard meal names and their prices to the user so they can make their order
+- The user can enter their order as a series of meals, and the system returns their cost
+- The prices on meals often vary in different circumstances. The restaurant has three different price settings (so far):
+    - Standard - normal rates
+    - Holiday - 15% surcharge on all items for all customers
+    - Happy Hour - where registered members get a 40% discount, while standard customers get 30%
+- The prices displayed on the menu are the ones for standard customers in all settings
+
+Currently, the code uses switch statements to handle each of the different four cases.
+- How does the code violate the open/closed principle?
+- How does this make the code brittle?
+
+ i) Refactor the code to use the Strategy Pattern to handle the three settings.
+
+Here is the strategy interface to get you started:
+
+```java
+public interface ChargingStrategy {
+    /**
+     * The cost of a meal.
+     */
+    public double cost(List<Meal> order, boolean payeeIsMember);
+
+    /**
+     * Modifying factor of charges for standard customers.
+     */
+    public double standardChargeModifier();
+}
+```
+
+ ii) Extend the system to add the following pricing strategy:
+  - Prize Draw: A special promotion where every *100th* customer (since the start of the promotion) gets their meal for free!
+
+## C. Composite Pattern
+Inside `src/calculator`, use the Composite Pattern to write a simple calculator that evaluates an expression. Your calculator should be able to:
+
+- Add two expressions
+- Subtract two expressions
+- Multiply two expressions
+- Divide two expressions
+
+There should be a `Calculator` class as well which can have an expression passed in, and calculate that expression.
+
+Design a solution, create stubs, write failing unit tests, then implement the functions.
+
+## D. Factory Pattern
+
+Inside `src/thrones`, there is some code to model a simple chess-like game. In this game different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance. There are four types of characters:
+
+- A king can move one square in any direction (including diagonally), and always causes 8 points of damage when attacking.
+- A knight can move like a knight in chess (in an L shape), and has a 1 in 2 chance of inflicting 10 points of damage when attacking.
+- A queen can move to any square in the same column, row or diagonal as she is currently on, and has a 1 in 3 chance of inflicting 12 points of damage and a 2 out of 3 chance of inflicting 6 points of damage.
+- A dragon can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
+
+We won't concern ourselves with the logic of the game in this exercise per se, but instead the creation of objects.
+
+We want to refactor the code so that when the characters are created, they are put in a random location in a grid of length 5.
+1. How does the Factory Pattern (AKA Factory Method) allow us to abstract construction of objects, and how will it improve our design with this new requirement?
+2. Use the Factory Pattern to create a series of object factories for each of the character types, and change the `main` method of `Game.java` to use these factories.
