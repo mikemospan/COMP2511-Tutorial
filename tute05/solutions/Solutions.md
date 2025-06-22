@@ -1,16 +1,22 @@
 # Tutorial 05
+
 ## A. Streams and Lambdas
+
 1. Inside `src/stream/App.java`, rewrite the following code using the `.forEach()` method and a lambda:
+
 ```java
 List<String> strings = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
 for (String string : strings) {
     System.out.println(string);
 }
 ```
+
 2. In the above example, discuss two different ways to write lambda expressions.
-> One-liner or with curly braces
+
+   > One-liner or with curly braces
 
 3. What is a stream? Rewrite the following code to use a stream and the `map` function.
+
 ```java
 List<String> strings2 = new ArrayList<String>(Arrays.asList(new String[] {"1", "2", "3", "4", "5"}));
 List<Integer> ints = new ArrayList<Integer>();
@@ -18,8 +24,9 @@ for (String string : strings2) {
     ints.add(Integer.parseInt(string));
 }
 ```
+
 4. Modify your answer to (3) to use a scope operator instead of a normal lambda.
-> See [`App.java`](solutions/src/stream/App.java)
+   > See [`App.java`](solutions/src/stream/App.java)
 
 ## B. Strategy Pattern
 Inside `src/restaurant` is a solution for a restaurant payment system with the following requirements:
@@ -61,6 +68,7 @@ public interface ChargingStrategy {
 
 ## C. Observer Pattern
 In `src/youtube`, create a model for the following requirements of a Youtube-like video creating and watching service using the Observer Pattern:
+
 - A Producer has a name, a series of subscribers and videos
 - When a producer posts a new video, all of the subscribers are notified that a new video was posted
 - A User has a name, and can subscribe to any Producer
@@ -69,4 +77,5 @@ In `src/youtube`, create a model for the following requirements of a Youtube-lik
 Write a simple test with print statements inside `YoutubeTest.java`.
 
 Once this is done, think about what if we want to be able to produce videos and subscribe to videos as well (the way youtube actually works). In groups, draw a UML diagram refactoring the code so that the `Producer` and `User` classes are merged, whilst still using the Observer Pattern.
+
 > See [solutions/src/youtube](solutions/src/youtube/)

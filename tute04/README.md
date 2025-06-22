@@ -1,6 +1,9 @@
 # Tutorial 04
+
 ## A. Design Principles
+
 ### Part 1: Law of Demeter
+
 In the `unsw.training` package there is some skeleton code for a training system.
 
 - Every employee must attend a whole day training seminar run by a qualified trainer
@@ -14,6 +17,7 @@ In the `TrainingSystem` class there is a method to book a seminar for an employe
 4. More generally, are getters essentially a means of violating the principle of least knowledge? Does this make using getters bad design?
 
 ### Part 2: Liskov Substitution Principle
+
 Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution Principle?
 
 ## B. Composite Pattern
@@ -40,5 +44,6 @@ Inside `src/thrones`, there is some code to model a simple chess-like game. In t
 We won't concern ourselves with the logic of the game in this exercise per se, but instead the creation of objects.
 
 We want to refactor the code so that when the characters are created, they are put in a random location in a grid of length 5.
+
 1. How does the Factory Pattern (AKA Factory Method) allow us to abstract construction of objects, and how will it improve our design with this new requirement?
 2. Use the Factory Pattern to create a series of object factories for each of the character types, and change the `main` method of `Game.java` to use these factories.
