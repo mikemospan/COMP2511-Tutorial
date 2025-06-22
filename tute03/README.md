@@ -5,8 +5,11 @@
 1. What is Design by Contract?
 2. Discuss how Design By Contract was applied in assignment-i.
 3. Discuss what preconditions, postconditions and invariants are.
-4. Consider a `Bird` class which has a function `fly`, which has a precondition that it is given a height to fly at greater than 5 metres in height, and a postcondition that it is now considered flying at that height. If I have a `Penguin` class which overrides that the `fly` method so that its preconditions are that it can only accept a height of 0 metres (since penguins can't fly) and its postconditions are that nothing changes, I have - _strengthened_ my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do) - _weakened_ my postconditions, as `Penguin` has an outcome which `Bird` doesn't
-   Discuss why strengthening preconditions and weakening postconditions violates good inheritance design
+4. Consider a `Bird` class with a method `fly` that takes in one integer argument, `height`. This method's precondition is that the height to fly at must be greater than 5 metres, and its postcondition is that the bird will now be flying at that height.\
+   If I have a `Penguin` class which overrides the `fly` method with a new precondition that it can only accept a height of 0 metres (since penguins can't fly) and a new postcondition that nothing changes, I have:\
+   \- _strengthened_ my preconditions, as not every potential input for `Bird` works for `Penguin` (in fact, none of them do)\
+   \- _weakened_ my postconditions, as `Penguin` has an outcome which `Bird` doesn't.\
+   Discuss why strengthening preconditions and weakening postconditions violates good inheritance design.
 5. In the `people` package, there are a few classes which represent the people at a university
    - Briefly discuss the preconditions and postconditions of the constructors, getters and setters in `Person.java`
    - Fill in the preconditions and postconditions for `setSalary` in `Person.java`
