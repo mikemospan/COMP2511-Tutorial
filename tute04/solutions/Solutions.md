@@ -40,49 +40,7 @@ Look at the `OnlineSeminar` class. How does this violate the Liskov Substitution
 
 > This class violates the Liskov Substitution Principle. Specifically a `Seminar` is defined as having a list of attendees, but `OnlineSeminar` does not require this. A client interacting with a `Seminar` would expect the seminar to be booked like any other. This is an example of classes having an IS-A relationship informally, but not a valid inheritance relationship when taking into account what the classes actually do and represent.
 
-## B. Strategy Pattern
-
-Inside `src/restaurant` is a solution for a restaurant payment system with the following requirements:
-
-- The restaurant has a menu, stored in a JSON file. Each meal on the menu has a name and price
-- The system displays all of the standard meal names and their prices to the user so they can make their order
-- The user can enter their order as a series of meals, and the system returns their cost
-- The prices on meals often vary in different circumstances. The restaurant has three different price settings (so far):
-  - Standard - normal rates
-  - Holiday - 15% surcharge on all items for all customers
-  - Happy Hour - where registered members get a 40% discount, while standard customers get 30%
-- The prices displayed on the menu are the ones for standard customers in all settings
-
-Currently, the code uses switch statements to handle each of the different four cases.
-
-- How does the code violate the open/closed principle?
-- How does this make the code brittle?
-
-i) Refactor the code to use the Strategy Pattern to handle the three settings.
-
-Here is the strategy interface to get you started:
-
-```java
-public interface ChargingStrategy {
-    /**
-     * The cost of a meal.
-     */
-    public double cost(List<Meal> order, boolean payeeIsMember);
-
-    /**
-     * Modifying factor of charges for standard customers.
-     */
-    public double standardChargeModifier();
-}
-```
-
-ii) Extend the system to add the following pricing strategy:
-
-- Prize Draw: A special promotion where every _100th_ customer (since the start of the promotion) gets their meal for free!
-  > See [solutions/src/restaurant](solutions/src/restaurant/)
-
-## C. Composite Pattern
-
+## B. Composite Pattern
 Inside `src/calculator`, use the Composite Pattern to write a simple calculator that evaluates an expression. Your calculator should be able to:
 
 - Add two expressions
@@ -96,7 +54,7 @@ Design a solution, create stubs, write failing unit tests, then implement the fu
 
 > See [solutions/src/calculator](solutions/src/calculator/)
 
-## D. Factory Pattern
+## C. Factory Pattern
 
 Inside `src/thrones`, there is some code to model a simple chess-like game. In this game different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance. There are four types of characters:
 
