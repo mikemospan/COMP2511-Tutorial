@@ -1,6 +1,7 @@
-package thrones.characters;
+package thrones.characters.wood;
 
 import thrones.Character;
+import thrones.characters.Queen;
 
 /**
  * A queen can move to any square in the same column, row or diagonal as she is
@@ -9,8 +10,8 @@ import thrones.Character;
  * 
  * @author Robert Clifton-Everest
  */
-public abstract class Queen extends CharacterBase {
-    public Queen(int x, int y) {
+public class WoodQueen extends Queen {
+    public WoodQueen(int x, int y) {
         super(x, y);
     }
 

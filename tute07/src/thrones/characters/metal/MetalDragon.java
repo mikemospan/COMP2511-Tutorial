@@ -1,6 +1,7 @@
-package thrones.characters;
+package thrones.characters.metal;
 
 import thrones.Character;
+import thrones.characters.Dragon;
 
 /**
  * A dragon can only move up, down, left or right, and has a 1 in 6 chance of
@@ -8,8 +9,8 @@ import thrones.Character;
  * 
  * @author Robert Clifton-Everest
  */
-public abstract class Dragon extends CharacterBase {
-    public Dragon(int x, int y) {
+public class MetalDragon extends Dragon {
+    public MetalDragon(int x, int y) {
         super(x, y);
     }
 

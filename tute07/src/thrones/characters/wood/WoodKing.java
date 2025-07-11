@@ -1,6 +1,7 @@
-package thrones.characters;
+package thrones.characters.wood;
 
 import thrones.Character;
+import thrones.characters.King;
 
 /**
  * A king can move one square in any direction (including diagonally), and
@@ -8,8 +9,8 @@ import thrones.Character;
  * 
  * @author Robert Clifton-Everest
  */
-public abstract class King extends CharacterBase {
-    public King(int x, int y) {
+public class WoodKing extends King {
+    public WoodKing(int x, int y) {
         super(x, y);
     }
 

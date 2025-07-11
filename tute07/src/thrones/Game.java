@@ -7,7 +7,9 @@ import java.util.Scanner;
 import thrones.characters.Dragon;
 import thrones.characters.King;
 import thrones.characters.Queen;
-import thrones.decorators.ChainMailDecorator;
+import thrones.characters.metal.MetalDragon;
+import thrones.characters.plastic.PlasticQueen;
+import thrones.characters.wood.WoodKing;
 
 /**
  * Plays the game with a command line interface.
@@ -49,13 +51,14 @@ public class Game {
     public static void main(String[] args) {
         Game game = new Game();
 
-        King k = new King(0, 0);
+        King k = new WoodKing(0, 0);
         game.addCharacter(k);
 
-        Dragon d = new Dragon(0, 1);
-        ChainMailDecorator cm = new ChainMailDecorator(d);
-        game.addCharacter(cm);
-        game.addCharacter(new Queen(2, 2));
+        Dragon d = new MetalDragon(0, 1);
+        // ChainMailDecorator cm = new ChainMailDecorator(d);
+        // game.addCharacter(cm);
+        Queen q = new PlasticQueen(2, 2);
+        game.addCharacter(q);
         game.play();
     }
 }

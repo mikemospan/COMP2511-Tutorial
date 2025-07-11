@@ -1,6 +1,7 @@
-package thrones.characters;
+package thrones.characters.plastic;
 
 import thrones.Character;
+import thrones.characters.Knight;
 
 /**
  * A knight can move like a knight in chess (in an L shape), and has a 1 in 2
@@ -8,8 +9,8 @@ import thrones.Character;
  * 
  * @author Robert Clifton-Everest
  */
-public abstract class Knight extends CharacterBase {
-    public Knight(int x, int y) {
+public class PlasticKnight extends Knight {
+    public PlasticKnight(int x, int y) {
         super(x, y);
     }
 
