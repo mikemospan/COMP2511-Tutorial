@@ -1,7 +1,5 @@
 package thrones.factories;
 
-import java.util.Random;
-
 import thrones.characters.Dragon;
 import thrones.characters.King;
 import thrones.characters.Knight;
@@ -11,28 +9,32 @@ import thrones.characters.plastic.PlasticKing;
 import thrones.characters.plastic.PlasticKnight;
 import thrones.characters.plastic.PlasticQueen;
 
-public class PlasticFactory implements CharacterFactory {
+public class PlasticFactory extends CharacterFactory {
 
-    private Random r = new Random();
-    
+    private int bound;
+
+    public PlasticFactory(int bound) {
+        this.bound = bound;
+    }
+
     @Override
     public King createKing() {
-        return new PlasticKing(r.nextInt(0, 10), 0);
+        return new PlasticKing(getInt(bound), getInt(bound));
     }
     
     @Override
     public Queen createQueen() {
-        return new PlasticQueen(r.nextInt(0, 10), 0);
+        return new PlasticQueen(getInt(bound), getInt(bound));
     }
     
     @Override
     public Knight createKnight() {
-        return new PlasticKnight(r.nextInt(0, 10), 0);
+        return new PlasticKnight(getInt(bound), getInt(bound));
     }
     
     @Override
     public Dragon createDragon() {
-        return new PlasticDragon(r.nextInt(0, 10), 0);
+        return new PlasticDragon(getInt(bound), getInt(bound));
     }
     
 }

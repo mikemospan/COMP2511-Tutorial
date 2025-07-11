@@ -1,7 +1,5 @@
 package thrones.factories;
 
-import java.util.Random;
-
 import thrones.characters.Dragon;
 import thrones.characters.King;
 import thrones.characters.Knight;
@@ -11,27 +9,31 @@ import thrones.characters.wood.WoodKing;
 import thrones.characters.wood.WoodKnight;
 import thrones.characters.wood.WoodQueen;
 
-public class WoodFactory implements CharacterFactory {
+public class WoodFactory extends CharacterFactory {
 
-    private Random r = new Random();
+    private int n;
+
+    public WoodFactory(int n) {
+        this.n = n;
+    }
 
     @Override
     public King createKing() {
-        return new WoodKing(r.nextInt(0, 10), 0);
+        return new WoodKing(getIntDivisbleBy(n), getIntDivisbleBy(n));
     }
     
     @Override
     public Queen createQueen() {
-        return new WoodQueen(r.nextInt(0, 10), 0);
+        return new WoodQueen(getIntDivisbleBy(n), getIntDivisbleBy(n));
     }
     
     @Override
     public Knight createKnight() {
-        return new WoodKnight(r.nextInt(0, 10), 0);
+        return new WoodKnight(getIntDivisbleBy(n), getIntDivisbleBy(n));
     }
     
     @Override
     public Dragon createDragon() {
-        return new WoodDragon(r.nextInt(0, 10), 0);
+        return new WoodDragon(getIntDivisbleBy(n), getIntDivisbleBy(n));
     }
 }

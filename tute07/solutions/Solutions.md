@@ -72,7 +72,12 @@ The original spec is as follows:
 > - A queen can move to any square in the same column, row or diagonal as she is currently on, and has a 1 in 3 chance of inflicting 12 points of damage and a 2 out of 3 chance of inflicting 6 points of damage.
 > - A dragon can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
 
-We now want to simulate the board game with the added change that pieces can be made from different materials, either Wood, Plastic or Metal. We want to be able to pick and choose which material we create a board with. Utilise the Abstract Factory pattern to solve these requirements.
+We now want to simulate the board game with the added change that pieces can be made from different materials, either Wood, Plastic or Metal. We want to be able to pick and choose which material we create a board with. Each material has its own construction requirements:
+- Metal pieces are heavy and hence can only be set with `0 <= x <= 5`, and `y = 0`
+- Plastic pieces are lightweight and can be placed anywhere within a given `bound` (provided to the factory)
+- Wooden pieces are large and bulky, and take up a `n`x`n` grid, meaning they can only be placed on tiles with `x` and `y` values which divide `n` (`n` is provided to the factory)
+
+Utilise the Abstract Factory pattern to solve these requirements.
 
 **For this exercise, we can ignore the decorators present in the starter code - those will come in Part C.**
 > See [solutions/src/thrones](solutions/src/thrones/)
