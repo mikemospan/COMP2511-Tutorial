@@ -8,7 +8,7 @@ import thrones.Character;
  * 
  * @author Robert Clifton-Everest
  */
-public class Dragon extends CharacterBase {
+public abstract class Dragon extends CharacterBase {
     public Dragon(int x, int y) {
         super(x, y);
     }
