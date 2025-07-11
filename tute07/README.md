@@ -58,13 +58,26 @@ Tokyo is leaving the bank, the balance is -1
 
 Use the Singleton Pattern to ensure that only one person can access the bank at a time. You can assume for simplicity's sake that only one access to *any* bank account can ever be made at a given time.
 
-## B. Evolution of Requirements
-Inside `src/thrones`, there is some code to model a simple chess-like game. In this game different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance. There are four types of characters:
+## B. Abstract Factory Pattern
 
-- A king can move one square in any direction (including diagonally), and always causes 8 points of damage when attacking.
-- A knight can move like a knight in chess (in an L shape), and has a 1 in 2 chance of inflicting 10 points of damage when attacking.
-- A queen can move to any square in the same column, row or diagonal as she is currently on, and has a 1 in 3 chance of inflicting 12 points of damage and a 2 out of 3 chance of inflicting 6 points of damage.
-- A dragon can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
+In tutorial 04, we discussed the factory pattern. We'll now look at a slightly modified scenario where the **abstract factory pattern** is more appropriate
+
+The original spec is as follows:
+
+> Inside `src/thrones`, there is some code to model a simple chess-like game. In this game different types of characters move around on a grid fighting each other. When one character moves into the square occupied by another they attack that character and inflict damage based on random chance. There are four types of characters:
+>
+> - A king can move one square in any direction (including diagonally), and always causes 8 points of damage when attacking.
+> - A knight can move like a knight in chess (in an L shape), and has a 1 in 2 chance of inflicting 10 points of damage when attacking.
+> - A queen can move to any square in the same column, row or diagonal as she is currently on, and has a 1 in 3 chance of inflicting 12 points of damage and a 2 out of 3 chance of inflicting 6 points of damage.
+> - A dragon can only move up, down, left or right, and has a 1 in 6 chance of inflicting 20 points of damage.
+
+We now want to simulate the board game with the added change that pieces can be made from different materials, either Wood, Plastic or Metal. We want to be able to pick and choose which material we create a board with. Utilise the Abstract Factory pattern to solve these requirements.
+
+**For this exercise, we can ignore the decorators present in the starter code - those will come in Part C.**
+
+## C. Evolution of Requirements
+
+This exercise continues on from part B.
 
 Suppose a requirements change was introduced that necessitated support for any character to wear different sorts of armour.
 
