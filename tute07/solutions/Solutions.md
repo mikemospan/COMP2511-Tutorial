@@ -84,9 +84,9 @@ Utilise the Abstract Factory pattern to solve these requirements.
 
 ## C. Evolution of Requirements
 
-This exercise continues on from Exercise D of last week.
+This exercise continues on from part B.
 
-Suppose a requirements change was introduce that necessitated support for different sorts of armour.
+Suppose a requirements change was introduced that necessitated support for any character to wear different sorts of armour.
 
 - A helmet reduces the amount of damage inflicted upon a character by 1 point.
 - Chain mail reduces the amount of damage by half (rounded down).
@@ -94,4 +94,3 @@ Suppose a requirements change was introduce that necessitated support for differ
 
 Use the Decorator Pattern to realise these new requirements. Assume that, as this game takes place in a virtual world, there are no restrictions on the number of pieces of armour a character can wear and that the "order" in which armour is worn affects how it works. You may need to make a small change to the existing code.
 > See [solutions/src/thrones](solutions/src/thrones/)
-
